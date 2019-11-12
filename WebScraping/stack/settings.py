@@ -64,9 +64,8 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {'stack.pipelines.MongoDBPipeline': 100}
-MONGO_URI = ['mongodb://localhost:27017']
-MONGO_DATABASE= 'ulta'
+#ITEM_PIPELINES = {'stack.pipelines.JsonSokoPipeline': 100} #'stack.pipelines.JsonUltaPipeline':200
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
