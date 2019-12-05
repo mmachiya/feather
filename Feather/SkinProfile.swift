@@ -18,17 +18,21 @@ class SkinProfile: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     
     @IBOutlet weak var errorLabel: UILabel!
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print("appeared!")
+        self.storyboard?.instantiateViewController(withIdentifier: "SkinProfileVC")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("am i even here?")
         // dismisses the number pad for age
         let tap = UITapGestureRecognizer(target: self.view,action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
         // make the error label transparent
-        errorLabel.alpha = 0
+//        errorLabel.alpha = 0
     }
 
     @IBAction func dryOilySlider(_ slider: UISlider)

@@ -7,75 +7,73 @@
 //
 
 import UIKit
+import MongoSwift
+import GoogleSignIn
+import Firebase
 
 class SignUpScreen: UIViewController {
-    
-    // TODO store it somewhere else
-    var username: String = ""
-    var password: String = ""
+        
 
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPwdTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("did load")
+
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance().signIn()
+        if (GIDSignIn.sharedInstance()?.currentUser != nil) {
+                   print("yay")
+                   transitionNext()
+               }
         
-        // dismisses the number pad for age
-        let tap = UITapGestureRecognizer(target: self.view,action: #selector(UIView.endEditing))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-        
-        // make the error label transparent
-        errorLabel.alpha = 0
     }
-    
-    @IBAction func signUpTapped(_ sender: UIButton)
-    {
-        let error = validateFields()
-        if error != nil
-        {
-            showError(error!)
-        }
-        else
-        {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    func proceed(){
+        if (GIDSignIn.sharedInstance()?.currentUser != nil) {
+            print("yay!")
             transitionNext()
         }
-    }
-    
-    func validateFields() -> String?
-    {
-        // check if all the fields are filled in
-        if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || confirmPwdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-        {
-            return "Please fill in all the fields."
+        else {
+            print("Boo")
         }
-        
-        // check matching passwords for confirmation
-        if (passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)) != (confirmPwdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))
-        {
-            return "The passwords do not match, please re-enter."
-        }
-        
-        // TODO values of username and password to be stored in db
-        username = usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
-        return nil
-    }
-    
-    func showError(_ message:String)
-    {
-        errorLabel.text = message
-        errorLabel.alpha = 1
     }
     
     func transitionNext()
     {
-        let skinProfileVC = storyboard?.instantiateViewController(identifier: "SkinProfileVC") as? SkinProfile
+        print("we in trans")
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let test = storyboard.instantiateViewController(withIdentifier: "SkinProfileVC")
         
-        view.window?.rootViewController = skinProfileVC
-        view.window?.makeKeyAndVisible()
+//        navigationController?.pushViewController(test, animated: true)
+        
+//        (self.rootViewController as? UINavigationController).pushViewController(test, animated: true)
+        //let profileVC = storyboard?.instantiateViewController(withIdentifier: "SkinProfileVC") as! SkinProfile
+        
+        //self.present(profileVC, animated: true, completion: nil)
+        regSegue()
+        
+//        self.view.window?.rootViewController = profileVC
+//        self.view.window?.makeKeyAndVisible()
+//        performSegue(withIdentifier: "mjn", sender: self)
+        print("weleavingtrans")
+    }
+    func regSegue(){
+        let page = SkinProfile()
+        getTopMostViewController()?.present(page, animated: true, completion: nil)
+//        topViewController: UIViewController?
+//        topViewController?.present(page, animated: true, completion: nil)
+    }
+    func getTopMostViewController() -> UIViewController? {
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+
+        return topMostViewController
+    }
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+      GIDSignIn.sharedInstance().signOut()
     }
 }

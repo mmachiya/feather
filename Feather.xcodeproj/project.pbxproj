@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87AEB674B36CFBA94C5C1788 /* Pods_FeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D707331D9F0C5A7263FB8F3 /* Pods_FeatherTests.framework */; };
 		B47D7BF4236AA44E00BA9707 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */; };
 		B4B53207236ABF8100B8304E /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B53206236ABF8100B8304E /* Ranking.swift */; };
 		B4C4DE0E236789E000501A10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE0D236789E000501A10 /* AppDelegate.swift */; };
@@ -17,6 +18,11 @@
 		B4C4DE222368135000501A10 /* SkinProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE212368135000501A10 /* SkinProfile.swift */; };
 		B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE23236819FE00501A10 /* ViewController.swift */; };
 		B4C4DE2E2369228E00501A10 /* FeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE2D2369228E00501A10 /* FeatherTests.swift */; };
+		E08B7D4EDF29E39A8C1BB5E6 /* Pods_Feather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F83B5D2C8A10681BB8629A /* Pods_Feather.framework */; };
+		FC0DDA1E2398800F0080ECD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC0DDA1D2398800F0080ECD3 /* GoogleService-Info.plist */; };
+		FC2013B52373ABDB0081BE6F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2013B42373ABDB0081BE6F /* Default-568h@2x.png */; };
+		FCE65E452373972300469136 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE65E442373972300469136 /* Constants.swift */; };
+		FCE65E4723739A1D00469136 /* FeatherProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE65E4623739A1D00469136 /* FeatherProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1289ED4B0AAC6E140E93250E /* Pods-FeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherTests.debug.xcconfig"; path = "Target Support Files/Pods-FeatherTests/Pods-FeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D10600B2EA59F37DA8EE9B8 /* Pods-FeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherTests.release.xcconfig"; path = "Target Support Files/Pods-FeatherTests/Pods-FeatherTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D707331D9F0C5A7263FB8F3 /* Pods_FeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72B59E5AE1ED1D415CB78D10 /* Pods-Feather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.debug.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.debug.xcconfig"; sourceTree = "<group>"; };
+		80F83B5D2C8A10681BB8629A /* Pods_Feather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		B4B53206236ABF8100B8304E /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
-		B4C4DE0A236789E000501A10 /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C4DE0A236789E000501A10 /* Feather_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C4DE0D236789E000501A10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4C4DE0F236789E000501A10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B4C4DE14236789E000501A10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +55,11 @@
 		B4C4DE2B2369228E00501A10 /* FeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C4DE2D2369228E00501A10 /* FeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherTests.swift; sourceTree = "<group>"; };
 		B4C4DE2F2369228E00501A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2A625F9D578F5993D637F69 /* Pods-Feather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.release.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.release.xcconfig"; sourceTree = "<group>"; };
+		FC0DDA1D2398800F0080ECD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC2013B42373ABDB0081BE6F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FCE65E442373972300469136 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FCE65E4623739A1D00469136 /* FeatherProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E08B7D4EDF29E39A8C1BB5E6 /* Pods_Feather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87AEB674B36CFBA94C5C1788 /* Pods_FeatherTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,16 +85,20 @@
 		B4C4DE01236789E000501A10 = {
 			isa = PBXGroup;
 			children = (
+				FC0DDA1D2398800F0080ECD3 /* GoogleService-Info.plist */,
+				FC2013B42373ABDB0081BE6F /* Default-568h@2x.png */,
 				B4C4DE0C236789E000501A10 /* Feather */,
 				B4C4DE2C2369228E00501A10 /* FeatherTests */,
 				B4C4DE0B236789E000501A10 /* Products */,
+				EAA5C03D3A446EBBA5EF866A /* Pods */,
+				C21126A4C937896A60B1ED16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		B4C4DE0B236789E000501A10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4C4DE0A236789E000501A10 /* Feather.app */,
+				B4C4DE0A236789E000501A10 /* Feather_app.app */,
 				B4C4DE2B2369228E00501A10 /* FeatherTests.xctest */,
 			);
 			name = Products;
@@ -86,8 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				B4C4DE0D236789E000501A10 /* AppDelegate.swift */,
+				FCE65E4623739A1D00469136 /* FeatherProduct.swift */,
 				B4C4DE23236819FE00501A10 /* ViewController.swift */,
 				B4C4DE0F236789E000501A10 /* SceneDelegate.swift */,
+				FCE65E442373972300469136 /* Constants.swift */,
 				B4C4DE212368135000501A10 /* SkinProfile.swift */,
 				B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */,
 				B4C4DE13236789E000501A10 /* Main.storyboard */,
@@ -108,6 +132,26 @@
 			path = FeatherTests;
 			sourceTree = "<group>";
 		};
+		C21126A4C937896A60B1ED16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80F83B5D2C8A10681BB8629A /* Pods_Feather.framework */,
+				2D707331D9F0C5A7263FB8F3 /* Pods_FeatherTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAA5C03D3A446EBBA5EF866A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72B59E5AE1ED1D415CB78D10 /* Pods-Feather.debug.xcconfig */,
+				D2A625F9D578F5993D637F69 /* Pods-Feather.release.xcconfig */,
+				1289ED4B0AAC6E140E93250E /* Pods-FeatherTests.debug.xcconfig */,
+				2D10600B2EA59F37DA8EE9B8 /* Pods-FeatherTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4C4DE1E236789E100501A10 /* Build configuration list for PBXNativeTarget "Feather" */;
 			buildPhases = (
+				F4CBDDF9CBD1AA507C63842E /* [CP] Check Pods Manifest.lock */,
 				B4C4DE06236789E000501A10 /* Sources */,
 				B4C4DE07236789E000501A10 /* Frameworks */,
 				B4C4DE08236789E000501A10 /* Resources */,
+				B70292927A2076E72A40F75A /* [CP] Embed Pods Frameworks */,
+				555EDA60A08850B5568E5443 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,13 +172,14 @@
 			);
 			name = Feather;
 			productName = Feather;
-			productReference = B4C4DE0A236789E000501A10 /* Feather.app */;
+			productReference = B4C4DE0A236789E000501A10 /* Feather_app.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B4C4DE2A2369228E00501A10 /* FeatherTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4C4DE322369228E00501A10 /* Build configuration list for PBXNativeTarget "FeatherTests" */;
 			buildPhases = (
+				8A65242984C41D57EC51FA07 /* [CP] Check Pods Manifest.lock */,
 				B4C4DE272369228E00501A10 /* Sources */,
 				B4C4DE282369228E00501A10 /* Frameworks */,
 				B4C4DE292369228E00501A10 /* Resources */,
@@ -190,6 +238,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4C4DE1A236789E100501A10 /* LaunchScreen.storyboard in Resources */,
+				FC2013B52373ABDB0081BE6F /* Default-568h@2x.png in Resources */,
+				FC0DDA1E2398800F0080ECD3 /* GoogleService-Info.plist in Resources */,
 				B4C4DE17236789E100501A10 /* Assets.xcassets in Resources */,
 				B4C4DE15236789E000501A10 /* Main.storyboard in Resources */,
 			);
@@ -204,6 +254,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		555EDA60A08850B5568E5443 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Feather/Pods-Feather-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Feather/Pods-Feather-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Feather/Pods-Feather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A65242984C41D57EC51FA07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FeatherTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B70292927A2076E72A40F75A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Feather/Pods-Feather-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Feather/Pods-Feather-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Feather/Pods-Feather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4CBDDF9CBD1AA507C63842E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Feather-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B4C4DE06236789E000501A10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -212,9 +343,11 @@
 				B47D7BF4236AA44E00BA9707 /* SignUpScreen.swift in Sources */,
 				B4C4DE0E236789E000501A10 /* AppDelegate.swift in Sources */,
 				B4C4DE222368135000501A10 /* SkinProfile.swift in Sources */,
+				FCE65E452373972300469136 /* Constants.swift in Sources */,
 				B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */,
 				B4B53207236ABF8100B8304E /* Ranking.swift in Sources */,
 				B4C4DE10236789E000501A10 /* SceneDelegate.swift in Sources */,
+				FCE65E4723739A1D00469136 /* FeatherProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +505,7 @@
 		};
 		B4C4DE1F236789E100501A10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72B59E5AE1ED1D415CB78D10 /* Pods-Feather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -382,7 +516,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.308-309.Feather";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Feather_app;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -390,6 +524,7 @@
 		};
 		B4C4DE20236789E100501A10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A625F9D578F5993D637F69 /* Pods-Feather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -400,7 +535,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.308-309.Feather";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Feather_app;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -408,6 +543,7 @@
 		};
 		B4C4DE332369228E00501A10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1289ED4B0AAC6E140E93250E /* Pods-FeatherTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -428,6 +564,7 @@
 		};
 		B4C4DE342369228E00501A10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D10600B2EA59F37DA8EE9B8 /* Pods-FeatherTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
