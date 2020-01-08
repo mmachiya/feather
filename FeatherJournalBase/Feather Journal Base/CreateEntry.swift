@@ -34,7 +34,7 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
             }
         }))
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in imagePicker.sourceType = .photoLibrary
-            self.present(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true,  completion: nil)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
