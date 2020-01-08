@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42B9FDD239889D9006356EA /* Allergies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42B9FDC239889D9006356EA /* Allergies.swift */; };
+		B47063052398B4AE00A5DC43 /* BadProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47063042398B4AE00A5DC43 /* BadProducts.swift */; };
 		B47D7BF4236AA44E00BA9707 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */; };
 		B4B53207236ABF8100B8304E /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B53206236ABF8100B8304E /* Ranking.swift */; };
 		B4C4DE0E236789E000501A10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE0D236789E000501A10 /* AppDelegate.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B42B9FDC239889D9006356EA /* Allergies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergies.swift; sourceTree = "<group>"; };
+		B47063042398B4AE00A5DC43 /* BadProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadProducts.swift; sourceTree = "<group>"; };
 		B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		B4B53206236ABF8100B8304E /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		B4C4DE0A236789E000501A10 /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,15 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				B4C4DE0D236789E000501A10 /* AppDelegate.swift */,
+				B42B9FDC239889D9006356EA /* Allergies.swift */,
+				B47063042398B4AE00A5DC43 /* BadProducts.swift */,
 				B4C4DE23236819FE00501A10 /* ViewController.swift */,
 				B4C4DE0F236789E000501A10 /* SceneDelegate.swift */,
 				B4C4DE212368135000501A10 /* SkinProfile.swift */,
 				B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */,
 				B4C4DE13236789E000501A10 /* Main.storyboard */,
+				B4B53206236ABF8100B8304E /* Ranking.swift */,
 				B4C4DE16236789E100501A10 /* Assets.xcassets */,
 				B4C4DE18236789E100501A10 /* LaunchScreen.storyboard */,
 				B4C4DE1B236789E100501A10 /* Info.plist */,
-				B4B53206236ABF8100B8304E /* Ranking.swift */,
 			);
 			path = Feather;
 			sourceTree = "<group>";
@@ -209,12 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42B9FDD239889D9006356EA /* Allergies.swift in Sources */,
 				B47D7BF4236AA44E00BA9707 /* SignUpScreen.swift in Sources */,
 				B4C4DE0E236789E000501A10 /* AppDelegate.swift in Sources */,
 				B4C4DE222368135000501A10 /* SkinProfile.swift in Sources */,
 				B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */,
 				B4B53207236ABF8100B8304E /* Ranking.swift in Sources */,
 				B4C4DE10236789E000501A10 /* SceneDelegate.swift in Sources */,
+				B47063052398B4AE00A5DC43 /* BadProducts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
