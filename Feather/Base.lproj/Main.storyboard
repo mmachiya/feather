@@ -75,7 +75,7 @@
         <scene sceneID="UYm-b3-5xh">
             <objects>
                 <viewController storyboardIdentifier="SignUpScreen" id="NeT-TA-WNo" customClass="SignUpScreen" customModule="Feather_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="e3o-np-1yJ" customClass="UITableView">
+                    <view key="view" contentMode="scaleToFill" id="e3o-np-1yJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFT-WZ-35O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4507.2463768115949" y="101.78571428571428"/>
+            <point key="canvasLocation" x="3672" y="102"/>
         </scene>
         <!--Ranking-->
         <scene sceneID="2QG-tR-S9w">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfI-pm-dhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5265.217391304348" y="101.78571428571428"/>
+            <point key="canvasLocation" x="4522" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uGv-eD-FWY">

@@ -72,20 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     print(error.localizedDescription)
                     return
                   }
-//                    let skinProfileVC = self.storyboard.instantiateViewController(identifier: "SkinProfileVC") as! SkinProfile
-//                    let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
-//                    let test = mainStoryBoard.instantiateViewController(withIdentifier: "SkinProfileVC")
-//                    self.window?.rootViewController = test
+
                     print("signed in successfully")
                     self.sign.proceed()
-//                    self.UIViewController.performSegue(withIdentifier: "toBuildProfile")
-//                    self.window?.makeKeyAndVisible()
-//                    UserDefaults.standard.set(link, forKey: "Link")
-//                    (self.window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
-//                    self.window?.rootViewController?.performSegue(withIdentifier: "mjn", sender: nil)
-//                    let rootViewController = self.window!.rootViewController as! UINavigationController;
-//                    rootViewController.pushViewController(test, animated: true)
-//                    self.window?.rootViewController?.performSegue(withIdentifier: "toBuildProfile", sender: SignUpScreen.self)
                 }
             }
 
