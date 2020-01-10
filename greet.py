@@ -1,5 +1,5 @@
 import unittest
-
+# Kaishu and Mirei Lab
 def greet(name):
     if name == None:
         return "Hello, my friend."
