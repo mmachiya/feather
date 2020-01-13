@@ -19,6 +19,12 @@ class SkinProfile: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print("appeared!")
+        self.storyboard?.instantiateViewController(withIdentifier: "SkinProfileVC")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
