@@ -34,7 +34,7 @@ class SkinProfile: UIViewController {
         view.addGestureRecognizer(tap)
         
         // make the error label transparent
-        errorLabel.alpha = 0
+//        errorLabel.alpha = 0
     }
 
     @IBAction func dryOilySlider(_ slider: UISlider)
