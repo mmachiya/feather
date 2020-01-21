@@ -44,6 +44,10 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         imageView.image = image
+//        print("got image")
+//        EntryCollectionViewController.entries
+        journalEntries[Date()] = image
+        print("ENTRIES COUNT: \(journalEntries.count)")
         picker.dismiss(animated: true, completion: nil)
         
     }

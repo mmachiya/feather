@@ -28,6 +28,8 @@
 		B4C4DE2E2369228E00501A10 /* FeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE2D2369228E00501A10 /* FeatherTests.swift */; };
 		B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990823C69F4C009527A8 /* FeatherProduct.swift */; };
 		B4F5990B23C69F79009527A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990A23C69F79009527A8 /* Constants.swift */; };
+		CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */; };
+		CBBD8D1E23D66A4A00E7B1E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		B4F5990823C69F4C009527A8 /* FeatherProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherProduct.swift; sourceTree = "<group>"; };
 		B4F5990A23C69F79009527A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C61CB6C7B91C594762D227F5 /* Pods-Feather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.debug.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.debug.xcconfig"; sourceTree = "<group>"; };
+		CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCollectionViewController.swift; sourceTree = "<group>"; };
+		CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 				B4861BBD23C6838A003BE557 /* EntryDetails.swift */,
 				B4861BBF23C683A6003BE557 /* CreateEntry.swift */,
 				B4861BC123C683FC003BE557 /* JournalPage.swift */,
+				CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */,
+				CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */,
 			);
 			path = Feather;
 			sourceTree = "<group>";
@@ -358,11 +364,13 @@
 				B4C4DE0E236789E000501A10 /* AppDelegate.swift in Sources */,
 				B4C4DE222368135000501A10 /* SkinProfile.swift in Sources */,
 				B4861BBE23C6838A003BE557 /* EntryDetails.swift in Sources */,
+				CBBD8D1E23D66A4A00E7B1E5 /* CollectionViewCell.swift in Sources */,
 				B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */,
 				B4B53207236ABF8100B8304E /* Ranking.swift in Sources */,
 				B4F5990B23C69F79009527A8 /* Constants.swift in Sources */,
 				B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */,
 				B4861BC023C683A6003BE557 /* CreateEntry.swift in Sources */,
+				CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */,
 				B4C4DE10236789E000501A10 /* SceneDelegate.swift in Sources */,
 				B4861BC223C683FC003BE557 /* JournalPage.swift in Sources */,
 				B47063052398B4AE00A5DC43 /* BadProducts.swift in Sources */,
