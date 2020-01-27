@@ -2,3 +2,4 @@ language: objective-c
 xcode_project: Feather.xcodeproj # path to your xcodeproj folder
 xcode_scheme: FeatherTests
 script: xcodebuild -workspace Feather.xcworkspace
+#make sure to do: - gem install cocoapods
