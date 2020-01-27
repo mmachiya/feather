@@ -10,7 +10,7 @@ before_install:
    - gem install cocoapods
    - gem install xcpretty -N
    - brew update
-   - brew install swiftlint ||
+   - brew install swiftlint || true
 script: 
-   - xcodebuild -workspace Feather.xcworkspace -scheme Feather -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+   - xcodebuild -workspace Feather.xcworkspace -scheme | xcpretty -c
    - swiftlint
