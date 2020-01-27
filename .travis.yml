@@ -1,5 +1,16 @@
-language: objective-c
+language: swift
 xcode_project: Feather.xcodeproj # path to your xcodeproj folder
 xcode_scheme: FeatherTests
-script: xcodebuild -workspace Feather.xcworkspace
-#make sure to do: - gem install cocoapods
+
+branches:
+  only:
+   - master
+before_install:
+   - rvm install ruby-2.2.2
+   - gem install cocoapods
+   - gem install xcpretty -N
+   - brew update
+   - brew install swiftlint ||
+script: 
+   - xcodebuild -workspace Feather.xcworkspace -scheme Feather -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+   - swiftlint
