@@ -29,14 +29,15 @@ class StackSpider(Spider):
         def extract_with_css(query):
             return response.css(query).get(default='').strip()
         product = StackItem()
+        product['category'] = response.css('div.Breadcrumb ul li *::text').getall()[2]
         product['brand'] = extract_with_css('p.Text.Text--body-1.Text--left.Text--bold.Text--small.Text--\$magenta-50::text')
         product['name'] = extract_with_css('span.Text.Text--subtitle-1.Text--left.Text--small.Text--text-20::text')
-        product['price'] = extract_with_css('span.Text.Text--title-6.Text--left.Text--bold.Text--small.Text--neutral-80::text')
+        product['price'] = extract_with_css('span.Text.Text--title-6.Text--left.Text--bold.Text--small.Text--neutral-80::text')[1:]
         product['details'] = "".join(response.css('div.ProductDetail__ProductRow div#productDetails.ProductDetail__productDetails div.ProductDetail__productContent *::text').extract())
         product['how_to_use'] = extract_with_css('div.ProductDetail__howToUse div.Collapsible div.Collapsible__contentOuter div.Collapsible__contentInner div.ProductDetail__productContent *::text')
         ingreds = extract_with_css('div.ProductDetail__ingredients div.Collapsible div.Collapsible__contentOuter div.Collapsible__contentInner div.ProductDetail__productContent *::text').split(',')
         product['ingredients'] = [ing.strip(' ') for ing in ingreds]
-        product['image_url'] = response.css('img::attr(src)')
+        #product['image_url'] = response.css('img::attr(src)')
         product['product_url'] = response.request.url
 
         yield product
