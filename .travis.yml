@@ -1,4 +1,16 @@
-language: objective-c
+language: swift
 xcode_project: Feather.xcodeproj # path to your xcodeproj folder
 xcode_scheme: FeatherTests
-script: xcodebuild -workspace Feather.xcworkspace
+
+branches:
+  only:
+   - master
+before_install:
+   - brew install ruby
+   - gem install cocoapods
+   - gem install xcpretty -N
+   - brew update
+   - brew install swiftlint || true
+script: 
+   - xcodebuild -workspace Feather.xcworkspace -scheme | xcpretty -c
+   - swiftlint

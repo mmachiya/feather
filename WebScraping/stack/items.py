@@ -11,6 +11,7 @@ from scrapy.item import Item, Field
 class StackItem(Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    category = Field()
     brand = Field()
     name = Field()
     price = Field()
