@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-
+import FBSDKCoreKit
 
 
 //var productsCollection: RemoteMongoCollection<FeatherProduct>
@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        //fb 
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+               
         // window set up
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
@@ -36,9 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
-      -> Bool {
-        return GIDSignIn.sharedInstance().handle(url)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+         let handled = ApplicationDelegate.shared.application(app, open: url, options: options)
+        GIDSignIn.sharedInstance().handle(url)
+        return handled
     }
     // MARK: UISceneSession Lifecycle
 
