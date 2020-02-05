@@ -64,6 +64,4 @@ class EntryCollectionViewController : UIViewController, UICollectionViewDelegate
 //        entries[Date()] = image
 //    }
     
-    
-    
 }

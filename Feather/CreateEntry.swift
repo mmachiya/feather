@@ -26,7 +26,7 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
             {
                 imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
-            }else{
+            } else {
                 print("Camera not found.")
                 let alert = UIAlertController(title: "No camera found.", message: "Camera cannot be accessed.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))

@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Feather.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CBEA664823E890970006DFB0"
+               BuildableName = "FeatherUITests.xctest"
+               BlueprintName = "FeatherUITests"
+               ReferencedContainer = "container:Feather.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

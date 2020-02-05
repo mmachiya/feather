@@ -2,6 +2,8 @@ disabled_rules: # rule identifiers to exclude from running
   - colon
   - comma
   - control_statement
+  - trailing_whitespace
+  - identifier_name
 opt_in_rules: # some rules are only opt-in
   - empty_count
 
@@ -23,7 +25,7 @@ force_cast: warning # implicitly
 force_try:
   severity: warning # explicitly
 
-line_length: 110
+line_length: 180
 
 type_body_length:
   - 300 # warning
