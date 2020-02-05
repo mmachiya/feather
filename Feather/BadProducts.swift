@@ -8,36 +8,74 @@
 
 import UIKit
 
-class BadProducts: UIViewController {
-
-    let products = ["Biore Morning Clenser", "CeraVe Renewing Gel Oil Face Moisturizer", "Clinique Repairwear Anti-Gravity Eye Cream", "Cetaphil Daily Facial Clenser", "Dear Klair's Heavy Moisturizer", "Neutrogena Rapid Wrinkle Repair Eye Cream"]
+class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
+{
 
     var searchedProducts = [String]()
     var searching = false
+    
+    var products = [ProductInfo]()
+    
+    // products in database
+    var badProducts = [String]()
+    
+    // has brand then name
+    var userBadProducts = [String]()
 
     @IBOutlet weak var productSearchBar: UISearchBar!
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var textOutput: UITextView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        downloadProductData()
+    }
+    
+    func downloadProductData()
+    {
+        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/soko.json")
+        URLSession.shared.dataTask(with: url!)
+        {
+            (data, response, error) in
+                do
+                {
+                    print("before parsing json")
+                    self.products = try JSONDecoder().decode([ProductInfo].self, from: data!)
+                    print("past json decoder")
+                    for prod in self.products
+                    {
+                        if !self.badProducts.contains(prod.name)
+                        {
+                            let tempname: String = prod.brand + " " + prod.name
+                            self.badProducts.append(tempname)
+                        }
+                    }
+                    self.badProducts.sort()
+                    DispatchQueue.main.async
+                    {
+                        self.productTableView.reloadData()
+                    }
+                }
+                catch
+                {
+                    print("My JSON Decoding Error")
+                }
+        }.resume()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ingredient = products[indexPath.row]
+        let ingredient = badProducts[indexPath.row]
         textOutput.text += "- "
         textOutput.text += ingredient
         textOutput.text += "\n"
         productTableView.reloadData()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
-
-extension BadProducts: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return searchedProducts.count
         } else {
-            return products.count
+            return badProducts.count
         }
     }
     
@@ -46,16 +84,13 @@ extension BadProducts: UITableViewDelegate, UITableViewDataSource {
         if searching {
             cell?.textLabel?.text = searchedProducts[indexPath.row]
         } else {
-            cell?.textLabel?.text = products[indexPath.row]
+            cell?.textLabel?.text = badProducts[indexPath.row]
         }
         return cell!
     }
-}
-
-extension BadProducts: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedProducts = products.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searchedProducts = badProducts.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         productTableView.reloadData()
     }
@@ -66,4 +101,3 @@ extension BadProducts: UISearchBarDelegate {
         productTableView.reloadData()
     }
 }
-
