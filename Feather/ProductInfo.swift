@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct ProductInfo:Decodable{
+    let name: String
+    let ingredients: [String]
+    let brand: String
+}
