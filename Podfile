@@ -10,7 +10,9 @@ target 'Feather' do
   pod 'Firebase/Analytics'
   pod 'GoogleSignIn', '~> 5.0'
   pod 'MongoSwift', '~>0.1.0'
-
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
   target 'FeatherTests' do
     inherit! :search_paths
     # Pods for testing
