@@ -26,14 +26,23 @@
 		B4C4DE222368135000501A10 /* SkinProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE212368135000501A10 /* SkinProfile.swift */; };
 		B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE23236819FE00501A10 /* ViewController.swift */; };
 		B4C4DE2E2369228E00501A10 /* FeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE2D2369228E00501A10 /* FeatherTests.swift */; };
+		B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6072623D99113005D2CCC /* ProductInfo.swift */; };
 		B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990823C69F4C009527A8 /* FeatherProduct.swift */; };
 		B4F5990B23C69F79009527A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990A23C69F79009527A8 /* Constants.swift */; };
 		CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */; };
 		CBBD8D1E23D66A4A00E7B1E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */; };
+		CBEA664C23E890970006DFB0 /* FeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA664B23E890970006DFB0 /* FeatherUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		B4C4DE302369228E00501A10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4C4DE02236789E000501A10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4C4DE09236789E000501A10;
+			remoteInfo = Feather;
+		};
+		CBEA664E23E890970006DFB0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4C4DE02236789E000501A10 /* Project object */;
 			proxyType = 1;
@@ -68,11 +77,15 @@
 		B4C4DE2B2369228E00501A10 /* FeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C4DE2D2369228E00501A10 /* FeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherTests.swift; sourceTree = "<group>"; };
 		B4C4DE2F2369228E00501A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E6072623D99113005D2CCC /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		B4F5990823C69F4C009527A8 /* FeatherProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherProduct.swift; sourceTree = "<group>"; };
 		B4F5990A23C69F79009527A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C61CB6C7B91C594762D227F5 /* Pods-Feather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.debug.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.debug.xcconfig"; sourceTree = "<group>"; };
 		CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCollectionViewController.swift; sourceTree = "<group>"; };
 		CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CBEA664923E890970006DFB0 /* FeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBEA664B23E890970006DFB0 /* FeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherUITests.swift; sourceTree = "<group>"; };
+		CBEA664D23E890970006DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +102,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				424194EA73F56C55864F67D4 /* Pods_FeatherTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBEA664623E890970006DFB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +132,7 @@
 				B4C4B60923C927DD0022C6B4 /* GoogleService-Info.plist */,
 				B4C4DE0C236789E000501A10 /* Feather */,
 				B4C4DE2C2369228E00501A10 /* FeatherTests */,
+				CBEA664A23E890970006DFB0 /* FeatherUITests */,
 				B4C4DE0B236789E000501A10 /* Products */,
 				51E0351217FC178A163CD49E /* Pods */,
 				F91E3C0726D08935DDAA8160 /* Frameworks */,
@@ -123,6 +144,7 @@
 			children = (
 				B4C4DE0A236789E000501A10 /* Feather.app */,
 				B4C4DE2B2369228E00501A10 /* FeatherTests.xctest */,
+				CBEA664923E890970006DFB0 /* FeatherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +171,7 @@
 				B4861BC123C683FC003BE557 /* JournalPage.swift */,
 				CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */,
 				CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */,
+				B4E6072623D99113005D2CCC /* ProductInfo.swift */,
 			);
 			path = Feather;
 			sourceTree = "<group>";
@@ -160,6 +183,15 @@
 				B4C4DE2F2369228E00501A10 /* Info.plist */,
 			);
 			path = FeatherTests;
+			sourceTree = "<group>";
+		};
+		CBEA664A23E890970006DFB0 /* FeatherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA664B23E890970006DFB0 /* FeatherUITests.swift */,
+				CBEA664D23E890970006DFB0 /* Info.plist */,
+			);
+			path = FeatherUITests;
 			sourceTree = "<group>";
 		};
 		F91E3C0726D08935DDAA8160 /* Frameworks */ = {
@@ -213,6 +245,24 @@
 			productReference = B4C4DE2B2369228E00501A10 /* FeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CBEA664823E890970006DFB0 /* FeatherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBEA665223E890970006DFB0 /* Build configuration list for PBXNativeTarget "FeatherUITests" */;
+			buildPhases = (
+				CBEA664523E890970006DFB0 /* Sources */,
+				CBEA664623E890970006DFB0 /* Frameworks */,
+				CBEA664723E890970006DFB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBEA664F23E890970006DFB0 /* PBXTargetDependency */,
+			);
+			name = FeatherUITests;
+			productName = FeatherUITests;
+			productReference = CBEA664923E890970006DFB0 /* FeatherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +277,10 @@
 						CreatedOnToolsVersion = 11.1;
 					};
 					B4C4DE2A2369228E00501A10 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = B4C4DE09236789E000501A10;
+					};
+					CBEA664823E890970006DFB0 = {
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = B4C4DE09236789E000501A10;
 					};
@@ -247,6 +301,7 @@
 			targets = (
 				B4C4DE09236789E000501A10 /* Feather */,
 				B4C4DE2A2369228E00501A10 /* FeatherTests */,
+				CBEA664823E890970006DFB0 /* FeatherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -268,6 +323,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4C4B60B23C927DD0022C6B4 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBEA664723E890970006DFB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +430,7 @@
 				B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */,
 				B4B53207236ABF8100B8304E /* Ranking.swift in Sources */,
 				B4F5990B23C69F79009527A8 /* Constants.swift in Sources */,
+				B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */,
 				B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */,
 				B4861BC023C683A6003BE557 /* CreateEntry.swift in Sources */,
 				CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */,
@@ -385,6 +448,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CBEA664523E890970006DFB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBEA664C23E890970006DFB0 /* FeatherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -392,6 +463,11 @@
 			isa = PBXTargetDependency;
 			target = B4C4DE09236789E000501A10 /* Feather */;
 			targetProxy = B4C4DE302369228E00501A10 /* PBXContainerItemProxy */;
+		};
+		CBEA664F23E890970006DFB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4C4DE09236789E000501A10 /* Feather */;
+			targetProxy = CBEA664E23E890970006DFB0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -609,6 +685,42 @@
 			};
 			name = Release;
 		};
+		CBEA665023E890970006DFB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "csc308-309.FeatherUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Feather;
+			};
+			name = Debug;
+		};
+		CBEA665123E890970006DFB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "csc308-309.FeatherUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Feather;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -635,6 +747,15 @@
 			buildConfigurations = (
 				B4C4DE332369228E00501A10 /* Debug */,
 				B4C4DE342369228E00501A10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBEA665223E890970006DFB0 /* Build configuration list for PBXNativeTarget "FeatherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBEA665023E890970006DFB0 /* Debug */,
+				CBEA665123E890970006DFB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

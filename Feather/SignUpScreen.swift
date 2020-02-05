@@ -9,19 +9,29 @@
 import UIKit
 import GoogleSignIn
 import Firebase
-
+import FBSDKCoreKit
+import FBSDKLoginKit
 class SignUpScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("did load")
-
+        let loginButton = FBLoginButton()
+        //loginButton.delegate = self as! LoginButtonDelegate
+        // Optional: Place the button in the center of your view.
+        loginButton.center = self.view.center;
+        self.view.addSubview(loginButton);
         GIDSignIn.sharedInstance()?.presentingViewController = self
         if (GIDSignIn.sharedInstance()?.currentUser != nil)
         {
            print("yay")
            transitionNext()
+        }
+        else if (AccessToken.current != nil)
+        {
+            print("fb")
+            transitionNext()
         }
     }
     
