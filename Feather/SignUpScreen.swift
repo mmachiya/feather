@@ -11,58 +11,92 @@ import GoogleSignIn
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
-class SignUpScreen: UIViewController {
+class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
+    
+    @IBOutlet weak var `continue`: UIButton!
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+            if ((error) != nil) {
+                // Process error
+            }
+            else if result!.isCancelled {
+                // Handle cancellations
+            }
+            else {
+                print("we in this bitch")
+                let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+                Auth.auth().signIn(with: credential) { (authResult, error) in
+                  if let error = error {
+                    print(error)
+                    return
+                  }
+                  // User is signed in
+                  print("im here")
+                  self.performSegue(withIdentifier: "hehe", sender: nil)
+                }
+
+            }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("user logged out")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("did load")
+        GIDSignIn.sharedInstance().delegate = self
         let loginButton = FBLoginButton()
-        //loginButton.delegate = self as! LoginButtonDelegate
-        // Optional: Place the button in the center of your view.
+        loginButton.delegate = self
         loginButton.center = self.view.center;
         self.view.addSubview(loginButton);
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        if (GIDSignIn.sharedInstance()?.currentUser != nil)
-        {
-           print("yay")
-           transitionNext()
-        }
-        else if (AccessToken.current != nil)
-        {
-            print("fb")
-            transitionNext()
-        }
+
     }
     
     deinit {
             NotificationCenter.default.removeObserver(self)
         }
-        func proceed(){
-            if (GIDSignIn.sharedInstance()?.currentUser != nil) {
-                print("yay!")
-                transitionNext()
-            }
-            else {
-                print("Boo")
-            }
-        }
         
-        func transitionNext(){
-            let page = SkinProfile()
-            getTopMostViewController()?.present(page, animated: true, completion: nil)
-        }
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+      GIDSignIn.sharedInstance().signOut()
+    }
     
-        func getTopMostViewController() -> UIViewController? {
-            var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
 
-            while let presentedViewController = topMostViewController?.presentedViewController {
-                topMostViewController = presentedViewController
+        print("sdkjflaskdjflak")
+          if let error = error {
+            print("ERRORRRR!!!")
+            print(error.localizedDescription)
+            return
+          }
+        
+          guard let authentication = user.authentication else { return }
+          let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                            accessToken: authentication.accessToken)
+            print("wah")
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+              if let error = error {
+                print("EROROJE!!!")
+                print(error.localizedDescription)
+                return
+              }
+
+                print("signed in successfully")
+                if (GIDSignIn.sharedInstance()?.currentUser != nil) {
+                    print("what is this!")
+                    self.performSegue(withIdentifier: "hehe", sender: nil)
+                }
+                else {
+                    print("Boo")
+                }
             }
+        }
 
-            return topMostViewController
-        }
-        @IBAction func didTapSignOut(_ sender: AnyObject) {
-          GIDSignIn.sharedInstance().signOut()
-        }
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+    
 }

@@ -10,12 +10,12 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
-
+import FBSDKLoginKit
 
 //var productsCollection: RemoteMongoCollection<FeatherProduct>
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var sign = SignUpScreen()
     
     var window: UIWindow?
@@ -26,16 +26,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
 
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
         
         //fb 
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
                
         // window set up
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: SignUpScreen())
         
+        if (GIDSignIn.sharedInstance()?.currentUser != nil)
+        {
+           print("yay")
+           window?.rootViewController = UINavigationController(rootViewController: SkinProfile())
+        }
+        else if (AccessToken.current != nil)
+        {
+            print("fb user already logged in")
+            window?.rootViewController = UINavigationController(rootViewController: SkinProfile())        }
+        else {
+            print("display signup")
+            window?.rootViewController = UINavigationController(rootViewController: SignUpScreen())
+        }
+        window?.makeKeyAndVisible()
         return true
     }
     
@@ -51,41 +62,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-        func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-
-            print("sdkjflaskdjflak")
-              if let error = error {
-                print("ERRORRRR!!!")
-                print(error.localizedDescription)
-                return
-              }
-            
-              guard let authentication = user.authentication else { return }
-              let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                                accessToken: authentication.accessToken)
-                print("wah")
-                Auth.auth().signIn(with: credential) { (authResult, error) in
-                  if let error = error {
-                    print("EROROJE!!!")
-                    print(error.localizedDescription)
-                    return
-                  }
-
-                    print("signed in successfully")
-                    self.sign.proceed()
-                }
-            }
-
-        func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-            // Perform any operations when the user disconnects from app here.
-            // ...
-        }
         
 }
 
