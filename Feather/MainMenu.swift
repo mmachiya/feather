@@ -21,18 +21,7 @@ class MainMenu: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func menuTapped(_ sender: Any) {
-        if menuOut == false {
-            leading.constant = 150
-            trailing.constant = -150
-            menuOut = true
-        }
-        else {
-            leading.constant = 0
-            trailing.constant = 0
-            menuOut = false
-        }
-    }
+    
     /*
     // MARK: - Navigation
 
