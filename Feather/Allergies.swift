@@ -22,8 +22,11 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     @IBOutlet weak var textOutput: UITextView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        textOutput.isEditable = false
+        textOutput.isSelectable = false
         downloadIngredientsData()
+        super.viewDidLoad()
+//        downloadIngredientsData()
     }
     
     func downloadIngredientsData()

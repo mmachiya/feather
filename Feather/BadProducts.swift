@@ -26,9 +26,14 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var textOutput: UITextView!
     
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        textOutput.isEditable = false
+        textOutput.isSelectable = false
         downloadProductData()
+        super.viewDidLoad()
+//        downloadProductData()
     }
     
     func downloadProductData()
