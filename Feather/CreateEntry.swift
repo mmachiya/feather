@@ -46,7 +46,12 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
         imageView.image = image
 //        print("got image")
 //        EntryCollectionViewController.entries
+        print("before")
         journalEntries[Date()] = image
+        print("sdasdfdsf")
+        //ViewController.SignUpUser.journal[Date()] = image
+    //ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["journal":journalEntries], merge: true)
+        
         print("ENTRIES COUNT: \(journalEntries.count)")
         picker.dismiss(animated: true, completion: nil)
         

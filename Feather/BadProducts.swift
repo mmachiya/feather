@@ -64,9 +64,13 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ingredient = badProducts[indexPath.row]
+        let prod = badProducts[indexPath.row]
+        userBadProducts.append(prod)
+        ViewController.SignUpUser.badProducts.append(prod)
+    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["badProducts":userBadProducts], merge: true)
+        
         textOutput.text += "- "
-        textOutput.text += ingredient
+        textOutput.text += prod
         textOutput.text += "\n"
         productTableView.reloadData()
     }

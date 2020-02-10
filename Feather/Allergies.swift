@@ -63,6 +63,9 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ingredient = ingredients[indexPath.row]
         allergies.append(ingredient)
+        ViewController.SignUpUser.allergies.append(ingredient)
+    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["allergies":allergies], merge: true)
+        
         textOutput.text += "- "
         textOutput.text += ingredient
         textOutput.text += "\n"

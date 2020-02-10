@@ -34,26 +34,38 @@ class SkinProfile: UIViewController {
         view.addGestureRecognizer(tap)
         
         // make the error label transparent
-//        errorLabel.alpha = 0
+        //errorLabel.alpha = 0
+
     }
 
     @IBAction func dryOilySlider(_ slider: UISlider)
     {
         dryOilyValue = Int(slider.value)
+        ViewController.SignUpUser.skinTypeLevel = dryOilyValue
     }
     
     @IBAction func sensitivitySlider(_ slider: UISlider)
     {
         sensitivityValue = Int(slider.value)
+        ViewController.SignUpUser.skinSensitivity = sensitivityValue
+
     }
     
     @IBAction func acneSlider(_ slider: UISlider)
     {
         acneValue = Int(slider.value)
+        ViewController.SignUpUser.acneLevel = acneValue
     }
     
     @IBAction func nextButtonTapped(_ button: UIButton)
     {
+    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["skinTypeLevel":dryOilyValue], merge: true)
+        print(dryOilyValue)
+    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["skinSensitivity":sensitivityValue], merge: true)
+        print(sensitivityValue)
+    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["acneLevel":acneValue], merge: true)
+        print(acneValue)
+        
         let error = validateAge()
         if error != nil
         {
@@ -62,7 +74,7 @@ class SkinProfile: UIViewController {
         else
         {
             transitionNext()
-        }
+         }
     }
     
     func validateAge() -> String?
@@ -83,7 +95,8 @@ class SkinProfile: UIViewController {
         
         // if nothing is wrong we are setting the global ageValue here
         ageValue = ageInt
-        
+        ViewController.SignUpUser.age = ageValue
+    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["age":ageValue], merge: true)
         return nil
     }
     

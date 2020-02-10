@@ -7,6 +7,7 @@ target 'Feather' do
 
   # Pods for Feather
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
   pod 'GoogleSignIn', '~> 5.0'
   pod 'MongoSwift', '~>0.1.0'

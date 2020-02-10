@@ -75,7 +75,11 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
           guard let authentication = user.authentication else { return }
           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                             accessToken: authentication.accessToken)
+            ViewController.SignUpUser.userAuthToken = authentication.idToken
+            ViewController.SignUpUser.db.collection("users").document(authentication.idToken)
+        
             print("wah")
+            print("AUTHENTICATION TOKEN ID" + authentication.idToken!)
             Auth.auth().signIn(with: credential) { (authResult, error) in
               if let error = error {
                 print("EROROJE!!!")
