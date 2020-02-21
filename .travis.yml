@@ -2,7 +2,6 @@ language: swift
 xcode_project: Feather.xcodeproj # path to your xcodeproj folder
 xcode_scheme: FeatherTests
 
-dist: trusty
 branches:
   only:
    - master
@@ -12,20 +11,6 @@ before_install:
    - gem install xcpretty -N
    - brew update
    - brew install swiftlint || true
-
-addons:
-  sonarcloud:
-    organization: "mmachiya"
-    token:
-	secure: "sZivMdwNF6e4WE10RxyA99DzwzTVNU0RfxyG928nFHQhxvx1GwRVWDvDk01IF9lz+JTJuUEErZL0HTXKM9R0iL3aIGxB+f8qWRHeMdPpwnh5VRmSTYYxzN1MPAyytW3bgqo9JN31+AZ+SGeHJl3r1jWj/YlWrl46b0YY5I2Oeeou75JnM5hn1MM5pMiDr1SjMplyJPiuP4QRRIso2+vj/t0csU8oKV2tF35166Nb8gYM9barhuGH2qAxrDczXUt9lSEqGvfrqsy/D50EnaWWh/ibAwZ6BkN7i60HKsOy4eq26TvMtlaJO35KGmIiaDSR4xNMYvQY0n4duy4Z8c7vXUrgphlsuq15bc+cC6up7sPn9tP13X75EnesTilp/6hU63h0eSbKRA3B43ZJ9VJHg67DgytLPBJkGBjui3hG1QD35jtBaI/p7JJpEmQMAzAv2ZFbTMlD2m/etRHqxUe8dAdKIpdLk6324coFRO1+1LvqE8UTyFj1U83UVI/OBRfADFPPltn8OFQv/DvodaB309ZcEngrrk13MdjrVVS/rvTeBFF+KrlBe7xrLuFHkaMnQGGb+BOcveh9ulrMpyMFh+vSTJuH03drGb6Ai5o3C1CtY48UTpKm+O07rGsT3mhbJQ58XU9iyc/C7kttmmk1SfjAgBT3FKOojAuVbpWgz+U="
-
 script: 
-   - script:
-   # Wraps the compilation with the Build Wrapper to generate configuration (used
-   # later by the SonarScanner) into the "bw-output" folder
-   - build-wrapper-linux-x86-64 --out-dir bw-output xcodebuild -workspace Feather.xcworkspace -scheme | xcpretty -c
-   # And finally run the SonarCloud analysis - read the "sonar-project.properties"
-   # file to see the specific configuration
-   - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+   - xcodebuild -workspace Feather.xcworkspace -scheme | xcpretty -c
    - swiftlint
-
