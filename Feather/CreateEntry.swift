@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    let collection = ViewController.SignUpUser.currentCollection
+    let doc = ViewController.SignUpUser.userAuthToken
+    
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +52,49 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
 //        EntryCollectionViewController.entries
         print("before")
         journalEntries[Date()] = image
+        
+        //ATTEMPTING TO STORE IMAGE
+        guard let data = image.jpegData(compressionQuality: 1.0)
+        else {
+            print("Error with getting image")
+            return
+        }
+        let imageName = UUID().uuidString
+        
+        let imageReference = Storage.storage().reference().child("journalFolder").child(imageName)
+        
+        imageReference.putData(data, metadata: nil) {
+            (metadata, err) in
+            if let err = err
+            {
+                print("Error " + err.localizedDescription)
+                return
+            }
+            imageReference.downloadURL(completion: {
+                (url, err) in
+                if let err = err
+                {
+                    print ("Error " + err.localizedDescription)
+                    return
+                }
+                guard let url = url else {
+                    print ("Error: Something wrong with url")
+                    return
+                }
+                
+                let dataReference = ViewController.SignUpUser.db.collection(self.collection).document(self.doc)
+                                
+                let urlString = url.absoluteString
+                
+                let currentDate = Date().description
+    
+                ViewController.SignUpUser.journal[currentDate] = urlString
+                
+                dataReference.setData(["journal":[currentDate:urlString]], merge: true)
+            })
+        }
+        
         print("sdasdfdsf")
-        //ViewController.SignUpUser.journal[Date()] = image
-    //ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["journal":journalEntries], merge: true)
         
         print("ENTRIES COUNT: \(journalEntries.count)")
         picker.dismiss(animated: true, completion: nil)

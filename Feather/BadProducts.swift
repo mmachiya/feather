@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 {
+    let collection = ViewController.SignUpUser.currentCollection
+    let doc = ViewController.SignUpUser.userAuthToken
 
     var searchedProducts = [String]()
     var searching = false
@@ -33,7 +36,7 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
     
     func downloadProductData()
     {
-        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/soko.json")
+        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
         URLSession.shared.dataTask(with: url!)
         {
             (data, response, error) in
@@ -64,14 +67,26 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let prod = badProducts[indexPath.row]
-        userBadProducts.append(prod)
-        ViewController.SignUpUser.badProducts.append(prod)
-    ViewController.SignUpUser.db.collection("users").document(ViewController.SignUpUser.userAuthToken).setData(["badProducts":userBadProducts], merge: true)
+        let prod: String
         
-        textOutput.text += "- "
-        textOutput.text += prod
-        textOutput.text += "\n"
+        if searching {
+            prod = searchedProducts[indexPath.row]
+        }
+        else
+        {
+            prod = badProducts[indexPath.row]
+        }
+        
+        if !userBadProducts.contains(prod)
+        {
+            userBadProducts.append(prod)
+            ViewController.SignUpUser.badProducts.append(prod)
+            textOutput.text += "- "
+            textOutput.text += prod
+            textOutput.text += "\n"
+        }
+        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["badProducts": FieldValue.arrayUnion(userBadProducts)], merge: true)
+    
         productTableView.reloadData()
     }
     

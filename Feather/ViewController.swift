@@ -14,14 +14,15 @@ class ViewController: UIViewController {
 
     struct SignUpUser {
         static let db = Firestore.firestore()
-        static var userAuthToken = String()
+        static var currentCollection = String() //same as userAuthtToken
+        static var userAuthToken = String() //this is acutually clientID --> which shouldn't change at different log ins but connected to the gmail
         static var skinSensitivity = Int()
         static var skinTypeLevel = Int()
         static var acneLevel = Int()
         static var age = Int()
         static var allergies = [String]()
         static var badProducts = [String]()
-        static var journal = [Date:UIImage]()
+        static var journal = [String:String]()
         static var products = [String]()
     }
     

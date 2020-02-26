@@ -72,31 +72,35 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
             return
           }
         
-          guard let authentication = user.authentication else { return }
-          let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                            accessToken: authentication.accessToken)
-            ViewController.SignUpUser.userAuthToken = authentication.idToken
-            ViewController.SignUpUser.db.collection("users").document(authentication.idToken)
+        guard let authentication = user.authentication else { return }
         
-            print("wah")
-            print("AUTHENTICATION TOKEN ID" + authentication.idToken!)
-            Auth.auth().signIn(with: credential) { (authResult, error) in
-              if let error = error {
-                print("EROROJE!!!")
-                print(error.localizedDescription)
-                return
-              }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        ViewController.SignUpUser.userAuthToken = authentication.clientID
+        ViewController.SignUpUser.currentCollection = authentication.clientID
+        
+        ViewController.SignUpUser.db.collection(authentication.clientID).document(authentication.clientID)
+        
+        print("wah")
+        print("AUTHENTICATION TOKEN ID" + authentication.idToken!)
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+          if let error = error {
+            print("EROROJE!!!")
+            print(error.localizedDescription)
+            return
+          }
 
-                print("signed in successfully")
-                if (GIDSignIn.sharedInstance()?.currentUser != nil) {
-                    print("what is this!")
-                    self.performSegue(withIdentifier: "hehe", sender: nil)
-                }
-                else {
-                    print("Boo")
-                }
+            print("signed in successfully")
+            if (GIDSignIn.sharedInstance()?.currentUser != nil) {
+                print("what is this!")
+                self.performSegue(withIdentifier: "hehe", sender: nil)
+            }
+            else {
+                print("Boo")
             }
         }
+    }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
