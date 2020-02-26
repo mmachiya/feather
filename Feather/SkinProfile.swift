@@ -10,6 +10,9 @@ import UIKit
 
 class SkinProfile: UIViewController {
     
+    let collection = ViewController.SignUpUser.currentCollection
+    let doc = ViewController.SignUpUser.userAuthToken
+    
     var ageValue: Int = 0
     var dryOilyValue: Int = 50
     var sensitivityValue: Int = 50
@@ -34,26 +37,39 @@ class SkinProfile: UIViewController {
         view.addGestureRecognizer(tap)
         
         // make the error label transparent
-//        errorLabel.alpha = 0
+        errorLabel.alpha = 0
+
     }
 
     @IBAction func dryOilySlider(_ slider: UISlider)
     {
         dryOilyValue = Int(slider.value)
+        ViewController.SignUpUser.skinTypeLevel = dryOilyValue
     }
     
     @IBAction func sensitivitySlider(_ slider: UISlider)
     {
         sensitivityValue = Int(slider.value)
+        ViewController.SignUpUser.skinSensitivity = sensitivityValue
+
     }
     
     @IBAction func acneSlider(_ slider: UISlider)
     {
         acneValue = Int(slider.value)
+        ViewController.SignUpUser.acneLevel = acneValue
     }
     
     @IBAction func nextButtonTapped(_ button: UIButton)
     {
+        
+        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["skinTypeLevel":dryOilyValue], merge: true)
+        print(dryOilyValue)
+        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["skinSensitivity":sensitivityValue], merge: true)
+        print(sensitivityValue)
+        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["acneLevel":acneValue], merge: true)
+        print(acneValue)
+        
         let error = validateAge()
         if error != nil
         {
@@ -62,7 +78,7 @@ class SkinProfile: UIViewController {
         else
         {
             transitionNext()
-        }
+         }
     }
     
     func validateAge() -> String?
@@ -76,14 +92,20 @@ class SkinProfile: UIViewController {
         // check if the age is a valid number
         let ageString: String = ageTextField.text ?? "-1"
         let ageInt: Int = Int(ageString) ?? -1
-        if ageInt < 13
+        
+        if ageInt < 0
+        {
+            return "Please enter a positive whole number"
+        }
+        else if ageInt < 13
         {
             return "This app is recommended for people ages 13 and up."
         }
         
         // if nothing is wrong we are setting the global ageValue here
         ageValue = ageInt
-        
+        ViewController.SignUpUser.age = ageValue
+        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["age":ageValue], merge: true)
         return nil
     }
     

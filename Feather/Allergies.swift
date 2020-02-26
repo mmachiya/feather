@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 {
+    let collection = ViewController.SignUpUser.currentCollection
+    let doc = ViewController.SignUpUser.userAuthToken
+    
     var searchedAllergy = [String]()
     var searching = false
     
@@ -28,7 +32,7 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     
     func downloadIngredientsData()
     {
-        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/soko.json")
+        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
         URLSession.shared.dataTask(with: url!)
         {
             (data, response, error) in
@@ -61,11 +65,30 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ingredient = ingredients[indexPath.row]
-        allergies.append(ingredient)
-        textOutput.text += "- "
-        textOutput.text += ingredient
-        textOutput.text += "\n"
+        
+        let ingredient: String
+        
+        if searching {
+            ingredient = searchedAllergy[indexPath.row]
+        }
+        else
+        {
+            ingredient = ingredients[indexPath.row]
+        }
+        
+        if !allergies.contains(ingredient)
+        {
+            allergies.append(ingredient)
+            ViewController.SignUpUser.allergies.append(ingredient)
+            textOutput.text += "- "
+            textOutput.text += ingredient
+            textOutput.text += "\n"
+        }
+        
+        let ref = ViewController.SignUpUser.db.collection(collection).document(doc)
+                
+        ref.setData(["allergies": FieldValue.arrayUnion(allergies)], merge: true)
+        
         allergiesTableView.reloadData()
     }
     
