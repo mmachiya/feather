@@ -41,19 +41,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+//        DispatchQueue.main.async
+//        {
+//            let alert = UIAlertController(title: "Please standby", message: "Currently loading lots of cool data...", preferredStyle: .alert)
+//            self.present(alert, animated: true, completion: nil)
+//        }
+//
         while loadingData
         {
-            activityIndicator.center = self.view.center
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.style = UIActivityIndicatorView.Style.medium
-            view.addSubview(activityIndicator)
-            // ADD POP UP HERE
-            activityIndicator.startAnimating()
+//            let alert = UIAlertController(title: "Please standby", message: "Currently loading lots of cool data...", preferredStyle: .alert)
+//            self.present(alert, animated: true, completion: nil)
+//            activityIndicator.center = self.view.center
+//            activityIndicator.hidesWhenStopped = true
+//            activityIndicator.style = UIActivityIndicatorView.Style.medium
+//            view.addSubview(activityIndicator)
+            // ADD
+            
+//            activityIndicator.startAnimating()
             self.view.isUserInteractionEnabled = false
         }
         if !loadingData
         {
-            activityIndicator.stopAnimating()
+//            activityIndicator.stopAnimating()
             self.view.isUserInteractionEnabled = true
             transitionNext()
         }
@@ -62,6 +71,11 @@ class ViewController: UIViewController {
     
     func downloadProductData()
     {
+        let alert = UIAlertController(title: "Please standby", message: "Currently loading lots of cool data...", preferredStyle: .alert)
+         DispatchQueue.main.async
+                {
+                    self.present(alert, animated: true, completion: nil)
+                }
         let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
         URLSession.shared.dataTask(with: url!)
         {
@@ -91,6 +105,11 @@ class ViewController: UIViewController {
                     Database.productsString.sort()
                     print("GOT ALL DATA FROM DATABASE")
                     self.loadingData = false
+                    DispatchQueue.main.async
+                    {
+                        alert.dismiss(animated: true, completion: nil)
+                    }
+                    
                 }
                 catch
                 {
@@ -105,5 +124,7 @@ class ViewController: UIViewController {
         view.window?.rootViewController = signup
         view.window?.makeKeyAndVisible()
     }
-}
+    
 
+
+}
