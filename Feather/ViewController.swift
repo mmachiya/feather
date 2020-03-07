@@ -11,7 +11,11 @@ import Firebase
 import FirebaseFirestore
 
 class ViewController: UIViewController {
-
+    
+    var loadingData = true
+    
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     struct SignUpUser {
         static let db = Firestore.firestore()
         static var currentCollection = String() //same as userAuthUID
@@ -35,6 +39,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         downloadProductData()
     }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        while loadingData
+        {
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.style = UIActivityIndicatorView.Style.medium
+            view.addSubview(activityIndicator)
+            // ADD POP UP HERE
+            activityIndicator.startAnimating()
+            self.view.isUserInteractionEnabled = false
+        }
+        if !loadingData
+        {
+            activityIndicator.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+            transitionNext()
+        }
+    }
+    
     
     func downloadProductData()
     {
@@ -66,12 +90,20 @@ class ViewController: UIViewController {
                     Database.ingredients.sort()
                     Database.productsString.sort()
                     print("GOT ALL DATA FROM DATABASE")
+                    self.loadingData = false
                 }
                 catch
                 {
                     print("My JSON Decoding Error")
                 }
         }.resume()
+    }
+    func transitionNext()
+    {
+        let signup = storyboard?.instantiateViewController(identifier: "SignUpScreen") as? SignUpScreen
+        
+        view.window?.rootViewController = signup
+        view.window?.makeKeyAndVisible()
     }
 }
 
