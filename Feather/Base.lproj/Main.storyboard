@@ -44,10 +44,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" image="featherIcon" translatesAutoresizingMaskIntoConstraints="NO" id="H4q-5P-OeV">
-                                <rect key="frame" x="63.5" y="146" width="287" height="176"/>
+                                <rect key="frame" x="135.5" y="146" width="143.5" height="123.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="feather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffo-RJ-xoD">
-                                <rect key="frame" x="121.5" y="342" width="171" height="0.0"/>
+                                <rect key="frame" x="121.5" y="289.5" width="171" height="52.5"/>
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="55"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1101,17 +1101,9 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="5nR-7Z-Mtp"/>
-        <segue reference="qaQ-vF-B5k"/>
-        <segue reference="ayl-6z-pld"/>
-        <segue reference="ASv-8o-Iru"/>
-=======
-        <segue reference="gLZ-t5-SwO"/>
         <segue reference="Tg1-Hc-e1R"/>
         <segue reference="ohg-Vx-WeY"/>
         <segue reference="ayl-6z-pld"/>
         <segue reference="8bM-ws-3wK"/>
->>>>>>> master
     </inferredMetricsTieBreakers>
 </document>
