@@ -358,6 +358,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="v7f-eE-zM7"/>
                     <connections>
+                        <outlet property="AcneSlider" destination="cJy-ws-wBa" id="yzu-VW-GLd"/>
+                        <outlet property="SkinSensitivitySlider" destination="XZa-YQ-yWH" id="Zhu-Zf-g7Q"/>
+                        <outlet property="SkinTypeSlider" destination="w4m-er-eha" id="Dhk-4v-dsz"/>
                         <outlet property="ageTextField" destination="tnP-n7-FBJ" id="ZWD-4j-z1E"/>
                         <outlet property="errorLabel" destination="c4n-IQ-gkm" id="Xn7-u9-8PZ"/>
                     </connections>
@@ -434,20 +437,12 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
+                                    <action selector="backButtonTapped:" destination="FHt-Xb-Z2I" eventType="touchUpInside" id="dH5-yR-XhE"/>
                                     <action selector="nextButtonTapped:" destination="uZc-D2-LLc" eventType="touchUpInside" id="pAW-SH-dmc"/>
-                                    <segue destination="uZc-D2-LLc" kind="presentation" modalPresentationStyle="fullScreen" id="ASv-8o-Iru"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-Jf-dv3">
-                                <rect key="frame" x="278" y="269" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="edit"/>
-                                <connections>
-                                    <action selector="Edit:" destination="FHt-Xb-Z2I" eventType="touchUpInside" id="ESt-bE-1FM"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rank your skin concerns: (most serious on top)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4Q-AS-jax">
-                                <rect key="frame" x="80" y="174" width="253" height="87"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rank your skin concerns: (most important on top)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4Q-AS-jax">
+                                <rect key="frame" x="72" y="175" width="270" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -471,7 +466,6 @@
                         <viewLayoutGuide key="safeArea" id="EpA-wj-yLq"/>
                     </view>
                     <connections>
-                        <outlet property="EditButton" destination="hy3-Jf-dv3" id="nsE-xh-5X9"/>
                         <outlet property="RankingTable" destination="Y46-Zo-d7U" id="69Z-IZ-w8T"/>
                     </connections>
                 </viewController>
@@ -1108,6 +1102,5 @@
         <segue reference="gLZ-t5-SwO"/>
         <segue reference="Tg1-Hc-e1R"/>
         <segue reference="d5r-j2-TUf"/>
-        <segue reference="8bM-ws-3wK"/>
     </inferredMetricsTieBreakers>
 </document>

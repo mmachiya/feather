@@ -19,8 +19,11 @@ class SkinProfile: UIViewController {
     var acneValue: Int = 50
 
     @IBOutlet weak var ageTextField: UITextField!
-    
     @IBOutlet weak var errorLabel: UILabel!
+    
+    @IBOutlet weak var SkinTypeSlider: UISlider!
+    @IBOutlet weak var SkinSensitivitySlider: UISlider!
+    @IBOutlet weak var AcneSlider: UISlider!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -35,6 +38,18 @@ class SkinProfile: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view,action: #selector(UIView.endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        if ViewController.SignUpUser.age != 0
+        {
+            populate()
+        }
+        
+        ViewController.SignUpUser.skinTypeLevel = Int(SkinTypeSlider.value)
+        dryOilyValue = Int(SkinTypeSlider.value)
+        ViewController.SignUpUser.skinSensitivity = Int(SkinSensitivitySlider.value)
+        sensitivityValue = Int(SkinSensitivitySlider.value)
+        ViewController.SignUpUser.acneLevel = Int(AcneSlider.value)
+        acneValue = Int(AcneSlider.value)
         
         // make the error label transparent
         errorLabel.alpha = 0
@@ -92,6 +107,7 @@ class SkinProfile: UIViewController {
         // check if the age is a valid number
         let ageString: String = ageTextField.text ?? "-1"
         let ageInt: Int = Int(ageString) ?? -1
+        var old: Bool = false
         
         if ageInt < 0
         {
@@ -101,7 +117,10 @@ class SkinProfile: UIViewController {
         {
             return "This app is recommended for people ages 13 and up."
         }
-        
+        else if ageInt >= 100
+        {
+            return "Are you sure? Your age is awfully high, please re-enter."
+        }
         // if nothing is wrong we are setting the global ageValue here
         ageValue = ageInt
         ViewController.SignUpUser.age = ageValue
@@ -122,5 +141,13 @@ class SkinProfile: UIViewController {
         
         view.window?.rootViewController = rankingVC
         view.window?.makeKeyAndVisible()
+    }
+    
+    func populate()
+    {
+        SkinTypeSlider.setValue(Float(ViewController.SignUpUser.skinTypeLevel), animated: true)
+        SkinSensitivitySlider.setValue(Float(ViewController.SignUpUser.skinSensitivity), animated: true)
+        AcneSlider.setValue(Float(ViewController.SignUpUser.acneLevel), animated: true)
+        ageTextField.text = String(ViewController.SignUpUser.age)
     }
 }

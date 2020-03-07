@@ -13,19 +13,6 @@ class Ranking: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var array = ["acne", "anti-aging/wrinkles", "dryness/hydration", "oil control/pores", "pigmentation", "redness", "sensitive"]
     
     @IBOutlet weak var RankingTable: UITableView!
-    @IBOutlet weak var EditButton: UIButton!
-    
-    @IBAction func Edit(_ sender: Any)
-    {
-        RankingTable.isEditing = !RankingTable.isEditing
-        
-        switch RankingTable.isEditing {
-        case true:
-            EditButton.setTitle("done", for: .normal)
-        case false:
-            EditButton.setTitle("edit", for: .normal)
-        }
-    }
     
     // setting up the cell with the array of data we have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -55,7 +42,6 @@ class Ranking: UIViewController, UITableViewDelegate, UITableViewDataSource {
     {
         return 0
     }
-
     
     // functions for moving the cell rows around
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -70,7 +56,20 @@ class Ranking: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewDidLoad() {
+        RankingTable.isEditing = true
         super.viewDidLoad()
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        transitionBack()
+    }
+    
+    func transitionBack()
+    {
+        let profile = storyboard?.instantiateViewController(identifier: "SkinProfileVC") as? SkinProfile
+                
+        view.window?.rootViewController = profile
+        view.window?.makeKeyAndVisible()
     }
 
 }
