@@ -48,7 +48,7 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
             textOutput.text += "\n"
         }
         ViewController.SignUpUser.db.collection(collection).document(doc).setData(["badProducts": FieldValue.arrayUnion(userBadProducts)], merge: true)
-    
+        
         productTableView.reloadData()
     }
     
