@@ -12,7 +12,7 @@ import FirebaseStorage
 class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     let collection = ViewController.SignUpUser.currentCollection
-    let doc = ViewController.SignUpUser.userAuthToken
+    let doc = ViewController.SignUpUser.userAuthUID
     
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {

@@ -12,13 +12,11 @@ import FirebaseFirestore
 class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 {
     let collection = ViewController.SignUpUser.currentCollection
-    let doc = ViewController.SignUpUser.userAuthToken
+    let doc = ViewController.SignUpUser.userAuthUID
     
     var searchedAllergy = [String]()
     var searching = false
     
-    var products = [ProductInfo]()
-    var ingredients = [String]()
     var allergies = [String]()
         
     @IBOutlet weak var allergiesSearchBar: UISearchBar!
@@ -27,41 +25,6 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadIngredientsData()
-    }
-    
-    func downloadIngredientsData()
-    {
-        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
-        URLSession.shared.dataTask(with: url!)
-        {
-            (data, response, error) in
-                do
-                {
-                    print("before parsing json")
-                    self.products = try JSONDecoder().decode([ProductInfo].self, from: data!)
-                    print("past json decoder")
-                    for prod in self.products
-                    {
-                        for i in prod.self.ingredients
-                       {
-                        if !self.ingredients.contains(i)
-                           {
-                            self.ingredients.append(i)
-                           }
-                       }
-                    }
-                    self.ingredients.sort()
-                    DispatchQueue.main.async
-                    {
-                        self.allergiesTableView.reloadData()
-                    }
-                }
-                catch
-                {
-                    print("My JSON Decoding Error")
-                }
-        }.resume()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -73,7 +36,7 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         }
         else
         {
-            ingredient = ingredients[indexPath.row]
+            ingredient = ViewController.Database.ingredients[indexPath.row]
         }
         
         if !allergies.contains(ingredient)
@@ -97,7 +60,7 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         if searching {
             return searchedAllergy.count
         } else {
-            return ingredients.count
+            return ViewController.Database.ingredients.count
         }
     }
     
@@ -107,13 +70,13 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         if searching {
             cell?.textLabel?.text = searchedAllergy[indexPath.row]
         } else {
-            cell?.textLabel?.text = ingredients[indexPath.row]
+            cell?.textLabel?.text = ViewController.Database.ingredients[indexPath.row]
         }
         return cell!
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedAllergy = ingredients.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searchedAllergy = ViewController.Database.ingredients.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         allergiesTableView.reloadData()
     }

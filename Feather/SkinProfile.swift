@@ -11,7 +11,7 @@ import UIKit
 class SkinProfile: UIViewController {
     
     let collection = ViewController.SignUpUser.currentCollection
-    let doc = ViewController.SignUpUser.userAuthToken
+    let doc = ViewController.SignUpUser.userAuthUID
     
     var ageValue: Int = 0
     var dryOilyValue: Int = 50
