@@ -744,7 +744,7 @@
         <!--Entry Collection View Controller-->
         <scene sceneID="hcC-zC-mtQ">
             <objects>
-                <viewController id="erp-P1-MUv" customClass="EntryCollectionViewController" customModule="Feather" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JournalVC" id="erp-P1-MUv" customClass="EntryCollectionViewController" customModule="Feather" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KYf-qW-OTg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1054,7 +1054,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="my journal"/>
                                 <connections>
-                                    <segue destination="erp-P1-MUv" kind="presentation" modalPresentationStyle="fullScreen" id="qaQ-vF-B5k"/>
+                                    <action selector="journalPressed:" destination="t7J-hh-bSy" eventType="touchUpInside" id="ezv-yd-bEN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-7G-A00">
@@ -1090,6 +1090,7 @@
                     </view>
                     <connections>
                         <outlet property="RPButton" destination="Ado-gN-vx5" id="qno-hw-dGK"/>
+                        <outlet property="journalButton" destination="uJY-ol-Alh" id="Se3-CR-Ari"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vb-zK-7bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1101,9 +1102,9 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gLZ-t5-SwO"/>
         <segue reference="Tg1-Hc-e1R"/>
-        <segue reference="qaQ-vF-B5k"/>
         <segue reference="d5r-j2-TUf"/>
-        <segue reference="ASv-8o-Iru"/>
+        <segue reference="8bM-ws-3wK"/>
     </inferredMetricsTieBreakers>
 </document>

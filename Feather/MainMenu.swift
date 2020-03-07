@@ -7,16 +7,33 @@
 //
 
 import UIKit
-
+var firstTime = true;
 class MainMenu: UIViewController {
+//    var firstTime = true;
     
     @IBOutlet var trailing: NSLayoutConstraint!
     @IBOutlet var leading: NSLayoutConstraint!
     
     @IBOutlet weak var RPButton: UIButton!
     var menuOut = false
+    @IBOutlet weak var journalButton: UIButton!
+    @IBAction func journalPressed(_ sender: UIButton) {
+        if (firstTime == true){
+            firstTimeJournal()
+        }
+        else{
+            transitionJournal()
+        }
+    }
     @IBAction func RPPressed(_ sender: UIButton) {
         restartCheck()
+    }
+    
+    func firstTimeJournal (){
+        firstTime = false
+        let alert = UIAlertController(title: "Welcome to the journal!", message: "my journal is a place for you to record your daily skin journey!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in self.transitionJournal()}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func restartCheck (){
@@ -37,6 +54,14 @@ class MainMenu: UIViewController {
         let skinProfileVC = storyboard?.instantiateViewController(identifier: "SkinProfileVC") as? SkinProfile
         
         view.window?.rootViewController = skinProfileVC
+        view.window?.makeKeyAndVisible()
+    }
+    
+    func transitionJournal()
+    {
+        let JournalVC = storyboard?.instantiateViewController(identifier: "JournalVC") as? EntryCollectionViewController
+        
+        view.window?.rootViewController = JournalVC
         view.window?.makeKeyAndVisible()
     }
 
