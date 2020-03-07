@@ -9,7 +9,13 @@
 import UIKit
 import FirebaseStorage
 
+//var doneToday = false
+var mostRecentEntryDate = Date(timeIntervalSinceReferenceDate: -123456789.0)
+
 class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+//    var doneToday = false
+//    var mostRecentEntryDate = Date(timeIntervalSinceReferenceDate: -123456789.0)
 
     let collection = ViewController.SignUpUser.currentCollection
     let doc = ViewController.SignUpUser.userAuthToken
@@ -48,11 +54,10 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as! UIImage
         imageView.image = image
-//        print("got image")
-//        EntryCollectionViewController.entries
         print("before")
         journalEntries[Date()] = image
-        
+        mostRecentEntryDate = Date()
+        print (mostRecentEntryDate)
         //ATTEMPTING TO STORE IMAGE
         guard let data = image.jpegData(compressionQuality: 1.0)
         else {
@@ -105,15 +110,7 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
         picker.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

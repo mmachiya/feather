@@ -22,18 +22,25 @@ var journalEntries: [Date:UIImage] = [:]
 class EntryCollectionViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var entries: [Date:UIImage] = [:]
     @IBOutlet weak var collectionView: UICollectionView!
-//    let backgroundImageView = UIImageView()
     
-//    func setBackground(){
-//        view.addSubview(backgroundImageView)
-//        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-//        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        backgroundImageView.image = UIImage(named: "topBarGreen")
-//
-//        view.sendSubviewToBack(backgroundImageView)
-//    }
+    @IBOutlet weak var plusButton: UIButton!
+    
+    @IBAction func plusAction(_ sender: UIButton) {
+        if (Calendar.current.isDateInToday(mostRecentEntryDate)){
+            onePerDay()
+        }
+        else{
+            print("DEATH")
+            self.performSegue(withIdentifier: "death", sender: nil)
+        }
+        
+    }
+    
+    func onePerDay (){
+        let alert = UIAlertController(title: "Error", message: "You already made a journal entry today.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action) in alert.dismiss(animated: true, completion: nil)}))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return journalEntries.count
