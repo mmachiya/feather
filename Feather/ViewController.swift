@@ -14,8 +14,8 @@ class ViewController: UIViewController {
 
     struct SignUpUser {
         static let db = Firestore.firestore()
-        static var currentCollection = String() //same as userAuthtToken
-        static var userAuthToken = String() //this is acutually clientID --> which shouldn't change at different log ins but connected to the gmail
+        static var currentCollection = String() //same as userAuthUID
+        static var userAuthUID = String()
         static var skinSensitivity = Int()
         static var skinTypeLevel = Int()
         static var acneLevel = Int()
@@ -26,8 +26,52 @@ class ViewController: UIViewController {
         static var products = [String]()
     }
     
+    struct Database{
+        static var products = [ProductInfo]()
+        static var ingredients = [String]()
+        static var productsString = [String]()
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        downloadProductData()
+    }
+    
+    func downloadProductData()
+    {
+        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
+        URLSession.shared.dataTask(with: url!)
+        {
+            (data, response, error) in
+                do
+                {
+                    print("before parsing json")
+                    Database.products = try JSONDecoder().decode([ProductInfo].self, from: data!)
+                    print("past json decoder")
+                    for prod in Database.products
+                    {
+                        if !Database.productsString.contains(prod.name)
+                        {
+                            let tempname: String = prod.brand + " " + prod.name
+                            Database.productsString.append(tempname)
+                        }
+                        
+                        for i in prod.self.ingredients
+                        {
+                            if !Database.ingredients.contains(i)
+                            {
+                                Database.ingredients.append(i)
+                            }
+                        }
+                    }
+                    Database.ingredients.sort()
+                    Database.productsString.sort()
+                    print("GOT ALL DATA FROM DATABASE")
+                }
+                catch
+                {
+                    print("My JSON Decoding Error")
+                }
+        }.resume()
     }
 }
 

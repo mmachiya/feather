@@ -12,15 +12,10 @@ import FirebaseFirestore
 class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 {
     let collection = ViewController.SignUpUser.currentCollection
-    let doc = ViewController.SignUpUser.userAuthToken
+    let doc = ViewController.SignUpUser.userAuthUID
 
     var searchedProducts = [String]()
     var searching = false
-    
-    var products = [ProductInfo]()
-    
-    // products in database
-    var badProducts = [String]()
     
     // has brand then name
     var userBadProducts = [String]()
@@ -31,39 +26,6 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadProductData()
-    }
-    
-    func downloadProductData()
-    {
-        let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
-        URLSession.shared.dataTask(with: url!)
-        {
-            (data, response, error) in
-                do
-                {
-                    print("before parsing json")
-                    self.products = try JSONDecoder().decode([ProductInfo].self, from: data!)
-                    print("past json decoder")
-                    for prod in self.products
-                    {
-                        if !self.badProducts.contains(prod.name)
-                        {
-                            let tempname: String = prod.brand + " " + prod.name
-                            self.badProducts.append(tempname)
-                        }
-                    }
-                    self.badProducts.sort()
-                    DispatchQueue.main.async
-                    {
-                        self.productTableView.reloadData()
-                    }
-                }
-                catch
-                {
-                    print("My JSON Decoding Error")
-                }
-        }.resume()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,7 +36,7 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
         }
         else
         {
-            prod = badProducts[indexPath.row]
+            prod = ViewController.Database.productsString[indexPath.row]
         }
         
         if !userBadProducts.contains(prod)
@@ -86,7 +48,7 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
             textOutput.text += "\n"
         }
         ViewController.SignUpUser.db.collection(collection).document(doc).setData(["badProducts": FieldValue.arrayUnion(userBadProducts)], merge: true)
-    
+        
         productTableView.reloadData()
     }
     
@@ -94,7 +56,7 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
         if searching {
             return searchedProducts.count
         } else {
-            return badProducts.count
+            return ViewController.Database.productsString.count
         }
     }
     
@@ -103,13 +65,13 @@ class BadProducts: UIViewController,UITableViewDelegate, UITableViewDataSource, 
         if searching {
             cell?.textLabel?.text = searchedProducts[indexPath.row]
         } else {
-            cell?.textLabel?.text = badProducts[indexPath.row]
+            cell?.textLabel?.text = ViewController.Database.productsString[indexPath.row]
         }
         return cell!
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedProducts = badProducts.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searchedProducts = ViewController.Database.productsString.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         productTableView.reloadData()
     }

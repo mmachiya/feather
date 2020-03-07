@@ -24,6 +24,12 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
             else {
                 print("we in this bitch")
                 let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+                
+                ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
+                ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
+                
+                ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+                
                 Auth.auth().signIn(with: credential) { (authResult, error) in
                   if let error = error {
                     print(error)
@@ -77,10 +83,11 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         
-        ViewController.SignUpUser.userAuthToken = authentication.clientID
-        ViewController.SignUpUser.currentCollection = authentication.clientID
+        ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
+        ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
         
-        ViewController.SignUpUser.db.collection(authentication.clientID).document(authentication.clientID)
+        print("UID ===========>" + ViewController.SignUpUser.userAuthUID)
+        ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
         
         print("wah")
         print("AUTHENTICATION TOKEN ID" + authentication.idToken!)

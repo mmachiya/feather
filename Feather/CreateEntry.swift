@@ -18,7 +18,7 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
 //    var mostRecentEntryDate = Date(timeIntervalSinceReferenceDate: -123456789.0)
 
     let collection = ViewController.SignUpUser.currentCollection
-    let doc = ViewController.SignUpUser.userAuthToken
+    let doc = ViewController.SignUpUser.userAuthUID
     
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
