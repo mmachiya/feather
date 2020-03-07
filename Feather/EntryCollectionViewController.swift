@@ -6,17 +6,9 @@
 //  Copyright © 2020 CSC308_309. All rights reserved.
 //
 
-//import Foundation
-import UIKit
-//struct Date
 
-//struct EntryCollection {
-//    var entries: [Date:UIImage] = [:]
-//
-//    mutating func addEntry(image : UIImage){
-//        self.entries[Date()] = image
-//    }
-//}
+import UIKit
+
 var journalEntries: [Date:UIImage] = [:]
 
 class EntryCollectionViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -67,8 +59,5 @@ class EntryCollectionViewController : UIViewController, UICollectionViewDelegate
         
        }
     
-//    func addEntry(image : UIImage){
-//        entries[Date()] = image
-//    }
     
 }

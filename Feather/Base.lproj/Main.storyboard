@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,9 +39,6 @@
                                 <state key="normal" title="get started">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="0CJ-bj-VwJ" kind="presentation" modalPresentationStyle="fullScreen" id="W82-gP-MbV"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" image="featherIcon" translatesAutoresizingMaskIntoConstraints="NO" id="H4q-5P-OeV">
                                 <rect key="frame" x="135.5" y="146" width="143.5" height="123.5"/>
@@ -747,7 +744,7 @@
         <!--Entry Collection View Controller-->
         <scene sceneID="hcC-zC-mtQ">
             <objects>
-                <viewController id="erp-P1-MUv" customClass="EntryCollectionViewController" customModule="Feather" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JournalVC" id="erp-P1-MUv" customClass="EntryCollectionViewController" customModule="Feather" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KYf-qW-OTg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1057,7 +1054,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="my journal"/>
                                 <connections>
-                                    <segue destination="erp-P1-MUv" kind="presentation" modalPresentationStyle="fullScreen" id="qaQ-vF-B5k"/>
+                                    <action selector="journalPressed:" destination="t7J-hh-bSy" eventType="touchUpInside" id="ezv-yd-bEN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-7G-A00">
@@ -1073,7 +1070,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="restart proflie"/>
                                 <connections>
-                                    <segue destination="uZc-D2-LLc" kind="presentation" modalPresentationStyle="fullScreen" id="ksv-9U-mKj"/>
+                                    <action selector="RPPressed:" destination="t7J-hh-bSy" eventType="touchUpInside" id="xLD-dQ-6Vw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="mainmenu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rT-mm-52Z">
@@ -1091,6 +1088,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="92J-mq-MVh"/>
                     </view>
+                    <connections>
+                        <outlet property="RPButton" destination="Ado-gN-vx5" id="qno-hw-dGK"/>
+                        <outlet property="journalButton" destination="uJY-ol-Alh" id="Se3-CR-Ari"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vb-zK-7bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1101,9 +1102,9 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gLZ-t5-SwO"/>
         <segue reference="Tg1-Hc-e1R"/>
-        <segue reference="ohg-Vx-WeY"/>
-        <segue reference="ayl-6z-pld"/>
+        <segue reference="d5r-j2-TUf"/>
         <segue reference="8bM-ws-3wK"/>
     </inferredMetricsTieBreakers>
 </document>
