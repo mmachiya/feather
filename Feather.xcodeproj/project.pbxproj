@@ -29,6 +29,7 @@
 		B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6072623D99113005D2CCC /* ProductInfo.swift */; };
 		B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990823C69F4C009527A8 /* FeatherProduct.swift */; };
 		B4F5990B23C69F79009527A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990A23C69F79009527A8 /* Constants.swift */; };
+		CBB26C3C24141E3F006DD153 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB26C3B24141E3F006DD153 /* MainMenu.swift */; };
 		CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */; };
 		CBBD8D1E23D66A4A00E7B1E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */; };
 		CBEA664C23E890970006DFB0 /* FeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA664B23E890970006DFB0 /* FeatherUITests.swift */; };
@@ -81,6 +82,7 @@
 		B4F5990823C69F4C009527A8 /* FeatherProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherProduct.swift; sourceTree = "<group>"; };
 		B4F5990A23C69F79009527A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C61CB6C7B91C594762D227F5 /* Pods-Feather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.debug.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.debug.xcconfig"; sourceTree = "<group>"; };
+		CBB26C3B24141E3F006DD153 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCollectionViewController.swift; sourceTree = "<group>"; };
 		CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CBEA664923E890970006DFB0 /* FeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 		B4C4DE0C236789E000501A10 /* Feather */ = {
 			isa = PBXGroup;
 			children = (
+				CBB26C3B24141E3F006DD153 /* MainMenu.swift */,
 				B4C4DE0D236789E000501A10 /* AppDelegate.swift */,
 				B42B9FDC239889D9006356EA /* Allergies.swift */,
 				B4F5990823C69F4C009527A8 /* FeatherProduct.swift */,
@@ -430,6 +433,7 @@
 				B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */,
 				B4B53207236ABF8100B8304E /* Ranking.swift in Sources */,
 				B4F5990B23C69F79009527A8 /* Constants.swift in Sources */,
+				CBB26C3C24141E3F006DD153 /* MainMenu.swift in Sources */,
 				B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */,
 				B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */,
 				B4861BC023C683A6003BE557 /* CreateEntry.swift in Sources */,
