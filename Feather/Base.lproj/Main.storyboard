@@ -789,29 +789,29 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RjA-rk-G1v">
-                                <rect key="frame" x="-13" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eAe-i5-7tH">
-                                    <size key="itemSize" width="132" height="132"/>
+                                    <size key="itemSize" width="199" height="199"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="B39-FB-2rf" customClass="CollectionViewCell" customModule="Feather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="199"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ySP-9n-2HO">
-                                            <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="199" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQb-fX-r0C">
-                                                    <rect key="frame" x="10" y="4" width="124" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="199"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="132" height="132"/>
+                                        <size key="customSize" width="199" height="199"/>
                                         <connections>
                                             <outlet property="selfieImageView" destination="nQb-fX-r0C" id="DAy-rU-cc2"/>
                                         </connections>
@@ -852,7 +852,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2Z-j3-sgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4812" y="1250"/>
+            <point key="canvasLocation" x="4811.594202898551" y="1249.5535714285713"/>
         </scene>
         <!--Create Entry-->
         <scene sceneID="P3O-SV-J92">
@@ -877,13 +877,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcS-xa-KSt">
-                                <rect key="frame" x="35" y="772" width="130" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMn-YX-6h9">
+                                <rect key="frame" x="0.0" y="175" width="414" height="547"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOo-TW-mQz">
+                                <rect key="frame" x="20" y="47" width="30" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="erp-P1-MUv" kind="presentation" modalPresentationStyle="fullScreen" id="zxS-l9-rFd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcS-xa-KSt">
+                                <rect key="frame" x="92" y="779" width="231" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.43022826313972473" green="0.64343410730361938" blue="0.62353092432022095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="EUm-jH-ckB"/>
-                                    <constraint firstAttribute="width" constant="130" id="NLc-u1-GOC"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                                 <state key="normal" title="Choose Selfie">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -892,36 +904,13 @@
                                     <action selector="ChooseSelfie:" destination="pOB-7c-kIw" eventType="touchUpInside" id="cVj-Bz-jdy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECe-Hd-7Il">
-                                <rect key="frame" x="249" y="772" width="130" height="50"/>
-                                <color key="backgroundColor" red="0.43022826313972473" green="0.64343410730361938" blue="0.62353092432022095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="2d7-ek-XDV"/>
-                                    <constraint firstAttribute="height" constant="50" id="XOd-uj-cac"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
-                                <state key="normal" title="Confirm">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="erp-P1-MUv" kind="presentation" modalPresentationStyle="fullScreen" id="ohg-Vx-WeY"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMn-YX-6h9">
-                                <rect key="frame" x="0.0" y="175" width="414" height="547"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="zXp-ld-eMI" firstAttribute="trailing" secondItem="ECe-Hd-7Il" secondAttribute="trailing" constant="35" id="3oW-Qm-FA8"/>
-                            <constraint firstItem="vcS-xa-KSt" firstAttribute="leading" secondItem="zXp-ld-eMI" secondAttribute="leading" constant="35" id="5qI-Ma-649"/>
                             <constraint firstItem="BJe-3x-pDG" firstAttribute="top" secondItem="AcN-tP-FIW" secondAttribute="top" id="9fp-Ph-E3p"/>
                             <constraint firstItem="BJe-3x-pDG" firstAttribute="leading" secondItem="zXp-ld-eMI" secondAttribute="leading" id="GJC-0j-dQI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="skh-cy-lsZ" secondAttribute="trailing" constant="95" id="Qsh-tm-O1H"/>
-                            <constraint firstItem="zXp-ld-eMI" firstAttribute="bottom" secondItem="ECe-Hd-7Il" secondAttribute="bottom" constant="40" id="S6N-a6-SQe"/>
                             <constraint firstItem="skh-cy-lsZ" firstAttribute="leading" secondItem="AcN-tP-FIW" secondAttribute="leadingMargin" constant="95" id="Sh7-zP-OwE"/>
-                            <constraint firstItem="zXp-ld-eMI" firstAttribute="bottom" secondItem="vcS-xa-KSt" secondAttribute="bottom" constant="40" id="XS1-xn-9V9"/>
                             <constraint firstItem="skh-cy-lsZ" firstAttribute="top" secondItem="zXp-ld-eMI" secondAttribute="top" constant="20" id="jsd-4q-siQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zXp-ld-eMI"/>
@@ -929,11 +918,12 @@
                     <navigationItem key="navigationItem" id="7yN-26-3Ah"/>
                     <connections>
                         <outlet property="imageView" destination="ZMn-YX-6h9" id="K8H-Uc-lzD"/>
+                        <outlet property="selfieButton" destination="vcS-xa-KSt" id="5Te-dG-8gR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kf4-5N-erG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6013" y="1222"/>
+            <point key="canvasLocation" x="6011.594202898551" y="1221.4285714285713"/>
         </scene>
         <!--Sign Up Screen-->
         <scene sceneID="say-9S-stR">
@@ -1105,7 +1095,7 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gLZ-t5-SwO"/>
+        <segue reference="zxS-l9-rFd"/>
         <segue reference="Tg1-Hc-e1R"/>
         <segue reference="d5r-j2-TUf"/>
         <segue reference="8bM-ws-3wK"/>
