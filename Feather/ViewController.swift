@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         static var badProducts = [String]()
         static var journal = [String:String]()
         static var products = [String]()
+        static var concernsRanking = [String:String]()
     }
     
     struct Database{

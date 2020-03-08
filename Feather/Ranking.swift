@@ -12,6 +12,9 @@ class Ranking: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var array = ["acne", "anti-aging/wrinkles", "dryness/hydration", "oil control/pores", "pigmentation", "redness", "sensitive"]
     
+    let collection = ViewController.SignUpUser.currentCollection
+    let doc = ViewController.SignUpUser.userAuthUID
+    
     @IBOutlet weak var RankingTable: UITableView!
     
     // setting up the cell with the array of data we have
@@ -69,6 +72,28 @@ class Ranking: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let profile = storyboard?.instantiateViewController(identifier: "SkinProfileVC") as? SkinProfile
                 
         view.window?.rootViewController = profile
+        view.window?.makeKeyAndVisible()
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        transitionNext()
+    }
+    
+    func transitionNext()
+    {
+       let allergies = storyboard?.instantiateViewController(identifier: "AllergiesVC") as? Allergies
+        
+       let dataReference = ViewController.SignUpUser.db.collection(collection).document(doc)
+
+        for i in array.indices
+        {
+            print(i+1)
+            print(array[i])
+             ViewController.SignUpUser.concernsRanking[String(i+1)] = array[i]
+            dataReference.setData(["concernsRanking":[String(i+1):(array[i])]], merge: true)
+        }
+        
+        view.window?.rootViewController = allergies
         view.window?.makeKeyAndVisible()
     }
 
