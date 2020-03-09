@@ -1,12 +1,19 @@
 # CSC 308/309: Feather
+Include Project Description
 
-Update  the  project README  on  GitHub  to  include  all  the  necessary  instructions  to  set  up  the environment for development and testing. Imagine a new team member would have to be onboarded, then add to the readme all the set up instructions to run the project components and also run test code
+### Setting up Environment for Development
+1. yes
+2. no 
+
+### Running Project Components
+
+### Running Tests
 
 Developers should follow the following style guide:
 https://github.com/linkedin/swift-style-guide
 
-## Static Code Analysis Report
-Insert link to Static Code Analysis report in wiki
+## Static Source Code Analysis Report
+Static Source Code Analysis Report can be found [here](https://github.com/mmachiya/feather/wiki/Static-Source-Code-Analysis-Report)
 ## Software Tests
 ### Testing Strategy Document
 wiki link
