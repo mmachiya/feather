@@ -6,9 +6,9 @@
 //  Copyright © 2020 CSC308_309. All rights reserved.
 //
 
-import SwiftUI
+//import SwiftUI
 
-struct ProductRow: View {
+/*struct ProductRow: View {
 
     var product: ProductInfo
 
@@ -42,4 +42,4 @@ struct ProductRow_Previews: PreviewProvider {
             return ProductRow(product: ProductInfo(name: "nil", ingredients: ["nil"], brand: "nil", category: "nil"))
         }
     }
-}
+}*/

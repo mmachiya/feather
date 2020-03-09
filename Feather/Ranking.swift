@@ -10,7 +10,7 @@ import UIKit
 
 class Ranking: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var array = ["acne", "anti-aging/wrinkles", "dryness/hydration", "oil control/pores", "pigmentation", "redness", "sensitive"]
+    var array = ["acne", "anti-aging", "dryness", "oil-control", "pigmentation", "redness", "sensitive"]
     
     let collection = ViewController.SignUpUser.currentCollection
     let doc = ViewController.SignUpUser.userAuthUID
