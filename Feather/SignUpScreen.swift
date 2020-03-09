@@ -60,6 +60,15 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.presentingViewController = self
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if let accessToken = AccessToken.current {
+            print("logged into fb and moving on")
+            self.performSegue(withIdentifier: "hehe", sender: nil)
+        } else if (GIDSignIn.sharedInstance()?.currentUser != nil) {
+            print("logged into google alr and going on")
+            self.performSegue(withIdentifier: "hehe", sender: nil)
+        }
+    }
     
     deinit {
             NotificationCenter.default.removeObserver(self)
