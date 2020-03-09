@@ -947,7 +947,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="uZc-D2-LLc" kind="presentation" identifier="hehe" modalPresentationStyle="fullScreen" id="8bM-ws-3wK"/>
+                                    <segue destination="t7J-hh-bSy" kind="presentation" identifier="hehe2" modalPresentationStyle="fullScreen" id="KRN-9u-7lM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1102,6 +1102,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="92J-mq-MVh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CjI-0S-afe"/>
                     <connections>
                         <outlet property="RPButton" destination="Ado-gN-vx5" id="qno-hw-dGK"/>
                         <outlet property="journalButton" destination="uJY-ol-Alh" id="Se3-CR-Ari"/>
@@ -1249,9 +1250,9 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L0n-NN-B4D"/>
         <segue reference="gLZ-t5-SwO"/>
-        <segue reference="KVT-yw-mu9"/>
+        <segue reference="L0n-NN-B4D"/>
+        <segue reference="KRN-9u-7lM"/>
         <segue reference="g74-4r-4V5"/>
     </inferredMetricsTieBreakers>
 </document>
