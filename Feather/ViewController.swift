@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         static var journal = [String:String]()
         static var products = [String]()
         static var concernsRanking = [String:String]()
+        static var myProducts = [String:[ProductInfo]]()
     }
     
     struct Database{
@@ -125,7 +126,5 @@ class ViewController: UIViewController {
         view.window?.rootViewController = signup
         view.window?.makeKeyAndVisible()
     }
-    
-
 
 }

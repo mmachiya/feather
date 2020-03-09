@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProductRow: View {
-    
+
     var product: ProductInfo
 
     var body: some View {
