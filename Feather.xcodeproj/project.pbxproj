@@ -27,6 +27,7 @@
 		B4C4DE24236819FE00501A10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE23236819FE00501A10 /* ViewController.swift */; };
 		B4C4DE2E2369228E00501A10 /* FeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C4DE2D2369228E00501A10 /* FeatherTests.swift */; };
 		B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6072623D99113005D2CCC /* ProductInfo.swift */; };
+		B4EE245F2416F53A00F91384 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE245E2416F53A00F91384 /* Recommendation.swift */; };
 		B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990823C69F4C009527A8 /* FeatherProduct.swift */; };
 		B4F5990B23C69F79009527A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5990A23C69F79009527A8 /* Constants.swift */; };
 		CBB26C3C24141E3F006DD153 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB26C3B24141E3F006DD153 /* MainMenu.swift */; };
@@ -82,6 +83,7 @@
 		B4C4DE2D2369228E00501A10 /* FeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherTests.swift; sourceTree = "<group>"; };
 		B4C4DE2F2369228E00501A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4E6072623D99113005D2CCC /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
+		B4EE245E2416F53A00F91384 /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		B4F5990823C69F4C009527A8 /* FeatherProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherProduct.swift; sourceTree = "<group>"; };
 		B4F5990A23C69F79009527A8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C61CB6C7B91C594762D227F5 /* Pods-Feather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.debug.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				B4F5990A23C69F79009527A8 /* Constants.swift */,
 				B4861BBF23C683A6003BE557 /* CreateEntry.swift */,
 				CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */,
+				B4EE245E2416F53A00F91384 /* Recommendation.swift */,
 				B4861BBD23C6838A003BE557 /* EntryDetails.swift */,
 				B4F5990823C69F4C009527A8 /* FeatherProduct.swift */,
 				B4C4DE1B236789E100501A10 /* Info.plist */,
@@ -445,6 +448,7 @@
 				CBB26C3C24141E3F006DD153 /* MainMenu.swift in Sources */,
 				FC265D692416298E00C989BB /* MyRoutine.swift in Sources */,
 				B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */,
+				B4EE245F2416F53A00F91384 /* Recommendation.swift in Sources */,
 				B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */,
 				B4861BC023C683A6003BE557 /* CreateEntry.swift in Sources */,
 				CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */,

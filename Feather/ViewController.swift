@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         static var products = [String]()
         static var concernsRanking = [String:String]()
         static var myProducts = [String:[ProductInfo]]()
+        static var recommendations = [ProductInfo]()
     }
     
     struct Database{

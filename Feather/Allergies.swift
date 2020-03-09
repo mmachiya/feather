@@ -64,7 +64,6 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allergyCell")
         if searching {
