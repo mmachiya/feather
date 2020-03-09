@@ -33,6 +33,9 @@
 		CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */; };
 		CBBD8D1E23D66A4A00E7B1E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */; };
 		CBEA664C23E890970006DFB0 /* FeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA664B23E890970006DFB0 /* FeatherUITests.swift */; };
+		FC265D692416298E00C989BB /* MyRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC265D682416298E00C989BB /* MyRoutine.swift */; };
+		FC265D6B24162B4600C989BB /* AddProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC265D6A24162B4600C989BB /* AddProducts.swift */; };
+		FCCE9A35241640390048C099 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE9A34241640390048C099 /* ProductRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		CBEA664923E890970006DFB0 /* FeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEA664B23E890970006DFB0 /* FeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatherUITests.swift; sourceTree = "<group>"; };
 		CBEA664D23E890970006DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC265D682416298E00C989BB /* MyRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutine.swift; sourceTree = "<group>"; };
+		FC265D6A24162B4600C989BB /* AddProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProducts.swift; sourceTree = "<group>"; };
+		FCCE9A34241640390048C099 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,27 +160,30 @@
 		B4C4DE0C236789E000501A10 /* Feather */ = {
 			isa = PBXGroup;
 			children = (
-				CBB26C3B24141E3F006DD153 /* MainMenu.swift */,
-				B4C4DE0D236789E000501A10 /* AppDelegate.swift */,
 				B42B9FDC239889D9006356EA /* Allergies.swift */,
-				B4F5990823C69F4C009527A8 /* FeatherProduct.swift */,
-				B4C4DE23236819FE00501A10 /* ViewController.swift */,
-				B47063042398B4AE00A5DC43 /* BadProducts.swift */,
-				B4C4DE0F236789E000501A10 /* SceneDelegate.swift */,
-				B4F5990A23C69F79009527A8 /* Constants.swift */,
-				B4C4DE212368135000501A10 /* SkinProfile.swift */,
-				B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */,
-				B4C4DE13236789E000501A10 /* Main.storyboard */,
-				B4B53206236ABF8100B8304E /* Ranking.swift */,
+				B4C4DE0D236789E000501A10 /* AppDelegate.swift */,
 				B4C4DE16236789E100501A10 /* Assets.xcassets */,
-				B4C4DE18236789E100501A10 /* LaunchScreen.storyboard */,
-				B4C4DE1B236789E100501A10 /* Info.plist */,
-				B4861BBD23C6838A003BE557 /* EntryDetails.swift */,
-				B4861BBF23C683A6003BE557 /* CreateEntry.swift */,
-				B4861BC123C683FC003BE557 /* JournalPage.swift */,
-				CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */,
+				B47063042398B4AE00A5DC43 /* BadProducts.swift */,
 				CBBD8D1D23D66A4A00E7B1E5 /* CollectionViewCell.swift */,
+				B4F5990A23C69F79009527A8 /* Constants.swift */,
+				B4861BBF23C683A6003BE557 /* CreateEntry.swift */,
+				CBBD8D1B23D6444800E7B1E5 /* EntryCollectionViewController.swift */,
+				B4861BBD23C6838A003BE557 /* EntryDetails.swift */,
+				B4F5990823C69F4C009527A8 /* FeatherProduct.swift */,
+				B4C4DE1B236789E100501A10 /* Info.plist */,
+				B4861BC123C683FC003BE557 /* JournalPage.swift */,
+				B4C4DE18236789E100501A10 /* LaunchScreen.storyboard */,
+				B4C4DE13236789E000501A10 /* Main.storyboard */,
+				FCCE9A34241640390048C099 /* ProductRow.swift */,
+				FC265D682416298E00C989BB /* MyRoutine.swift */,
+				FC265D6A24162B4600C989BB /* AddProducts.swift */,
+				CBB26C3B24141E3F006DD153 /* MainMenu.swift */,
 				B4E6072623D99113005D2CCC /* ProductInfo.swift */,
+				B4B53206236ABF8100B8304E /* Ranking.swift */,
+				B4C4DE0F236789E000501A10 /* SceneDelegate.swift */,
+				B47D7BF3236AA44E00BA9707 /* SignUpScreen.swift */,
+				B4C4DE212368135000501A10 /* SkinProfile.swift */,
+				B4C4DE23236819FE00501A10 /* ViewController.swift */,
 			);
 			path = Feather;
 			sourceTree = "<group>";
@@ -434,13 +443,16 @@
 				B4B53207236ABF8100B8304E /* Ranking.swift in Sources */,
 				B4F5990B23C69F79009527A8 /* Constants.swift in Sources */,
 				CBB26C3C24141E3F006DD153 /* MainMenu.swift in Sources */,
+				FC265D692416298E00C989BB /* MyRoutine.swift in Sources */,
 				B4E6072723D99113005D2CCC /* ProductInfo.swift in Sources */,
 				B4F5990923C69F4C009527A8 /* FeatherProduct.swift in Sources */,
 				B4861BC023C683A6003BE557 /* CreateEntry.swift in Sources */,
 				CBBD8D1C23D6444800E7B1E5 /* EntryCollectionViewController.swift in Sources */,
+				FCCE9A35241640390048C099 /* ProductRow.swift in Sources */,
 				B4C4DE10236789E000501A10 /* SceneDelegate.swift in Sources */,
 				B4861BC223C683FC003BE557 /* JournalPage.swift in Sources */,
 				B47063052398B4AE00A5DC43 /* BadProducts.swift in Sources */,
+				FC265D6B24162B4600C989BB /* AddProducts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
