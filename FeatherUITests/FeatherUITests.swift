@@ -15,7 +15,7 @@ class FeatherUITests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         continueAfterFailure = false
-        let app = XCUIApplication()
+//        let app = XCUIApplication()
         XCUIDevice.shared.orientation = UIDeviceOrientation.portrait
 
     }
@@ -25,10 +25,14 @@ class FeatherUITests: XCTestCase {
     }
 
     func testCancelGoogle() {
-        let app = XCUIApplication()
-        app/*@START_MENU_TOKEN@*/.buttons["GIDSignInButton"]/*[[".buttons[\"Sign in\"]",".buttons[\"GIDSignInButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
-        app.alerts["“Feather” Wants to Use “google.com” to Sign In"].scrollViews.otherElements.buttons["Continue"].tap()
+//        THIS FAILS
         
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["get started"].tap()
+        app/*@START_MENU_TOKEN@*/.buttons["GIDSignInButton"]/*[[".buttons[\"Sign in\"]",".buttons[\"GIDSignInButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.alerts["“Feather” Wants to Use “google.com” to Sign In"].scrollViews.otherElements.buttons["Cancel"].tap()
+        app.terminate()
     }
 
     func testLaunchPerformance() {
