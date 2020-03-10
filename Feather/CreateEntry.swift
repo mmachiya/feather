@@ -9,13 +9,11 @@
 import UIKit
 import FirebaseStorage
 
-//var doneToday = false
 var mostRecentEntryDate = Date(timeIntervalSinceReferenceDate: -123456789.0)
 
 class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-//    var doneToday = false
-//    var mostRecentEntryDate = Date(timeIntervalSinceReferenceDate: -123456789.0)
+
 
     let collection = ViewController.SignUpUser.currentCollection
     let doc = ViewController.SignUpUser.userAuthUID
@@ -40,26 +38,25 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
         }
         else{
             let imagePicker = UIImagePickerController()
-                    imagePicker.delegate = self
-                    let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source.", preferredStyle: .actionSheet)
-                    actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
-                        if UIImagePickerController.isSourceTypeAvailable(.camera)
-                        {
-                            imagePicker.sourceType = .camera
-                            self.present(imagePicker, animated: true, completion: nil)
-                        } else {
-                            print("Camera not found.")
-                            let alert = UIAlertController(title: "No camera found.", message: "Camera cannot be accessed.", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                        }
-            //            self.selfieButton.setTitle("YAY", for: UIControlStateNormal)
-                    }))
-                    actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in imagePicker.sourceType = .photoLibrary
-                        self.present(imagePicker, animated: true,  completion: nil)
-                    }))
-                    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                    self.present(actionSheet, animated: true, completion: nil)
+            imagePicker.delegate = self
+            let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source.", preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+                if UIImagePickerController.isSourceTypeAvailable(.camera)
+                {
+                    imagePicker.sourceType = .camera
+                    self.present(imagePicker, animated: true, completion: nil)
+                } else {
+                    print("Camera not found.")
+                    let alert = UIAlertController(title: "No camera found.", message: "Camera cannot be accessed.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }))
+            actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true,  completion: nil)
+            }))
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            self.present(actionSheet, animated: true, completion: nil)
         }
         
         
@@ -69,7 +66,7 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
         if (!Calendar.current.isDateInToday(mostRecentEntryDate)){
             let image = info[.originalImage] as! UIImage
                 imageView.image = image
-                print("GOT IMAGE")
+      
                 journalEntries[Date()] = image
                 mostRecentEntryDate = Date()
                 print (mostRecentEntryDate)
@@ -113,10 +110,7 @@ class CreateEntry: UIViewController, UINavigationControllerDelegate, UIImagePick
                         dataReference.setData(["journal":[currentDate:urlString]], merge: true)
                     })
                 }
-                
-                print("sdasdfdsf")
-                
-                print("ENTRIES COUNT: \(journalEntries.count)")
+         
                 picker.dismiss(animated: true, completion: nil)
         }
         
