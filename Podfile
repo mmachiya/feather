@@ -15,9 +15,11 @@ target 'Feather' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
+  
   target 'FeatherTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Cucumberish'
   end
 
 end

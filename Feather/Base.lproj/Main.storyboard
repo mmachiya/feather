@@ -1024,9 +1024,23 @@
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHk-Bc-a8a">
                                 <rect key="frame" x="348" y="838" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="t7J-hh-bSy" kind="presentation" identifier="hehe2" modalPresentationStyle="fullScreen" id="KRN-9u-7lM"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YY-Ow-vd3">
+                                <rect key="frame" x="20" y="838" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="uZc-D2-LLc" kind="presentation" identifier="hehe" modalPresentationStyle="fullScreen" id="Sfa-4P-IJ1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1036,11 +1050,12 @@
                     <navigationItem key="navigationItem" id="aao-Ke-e8c"/>
                     <connections>
                         <outlet property="continue" destination="bHk-Bc-a8a" id="EAU-iD-Ewg"/>
+                        <outlet property="continue2" destination="9YY-Ow-vd3" id="mRs-E9-cUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uoy-j2-oph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="102"/>
+            <point key="canvasLocation" x="781" y="102"/>
         </scene>
         <!--my routine-->
         <scene sceneID="JfI-eT-9Le">

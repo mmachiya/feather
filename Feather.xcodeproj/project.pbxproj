@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04AE91832416F9D80085DC5E /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 04AE91822416F9D80085DC5E /* Features */; };
 		0F23459B7B846DD797784B06 /* Pods_Feather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02683F3C3864E48C51841B57 /* Pods_Feather.framework */; };
 		424194EA73F56C55864F67D4 /* Pods_FeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7B236B6727CB25F13D2FAC /* Pods_FeatherTests.framework */; };
 		B42B9FDD239889D9006356EA /* Allergies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42B9FDC239889D9006356EA /* Allergies.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		02683F3C3864E48C51841B57 /* Pods_Feather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FEC6B5B94F26C5F25B8EEB /* Pods-FeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherTests.debug.xcconfig"; path = "Target Support Files/Pods-FeatherTests/Pods-FeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
+		04AE91822416F9D80085DC5E /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Features; sourceTree = "<group>"; };
 		7BF3672429CA2D6C89AD6728 /* Pods-FeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatherTests.release.xcconfig"; path = "Target Support Files/Pods-FeatherTests/Pods-FeatherTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F7B236B6727CB25F13D2FAC /* Pods_FeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A205696437617E1BC526CDE5 /* Pods-Feather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feather.release.xcconfig"; path = "Target Support Files/Pods-Feather/Pods-Feather.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04AE91812416F9BE0085DC5E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				04AE91822416F9D80085DC5E /* Features */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		51E0351217FC178A163CD49E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		B4C4DE2C2369228E00501A10 /* FeatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				04AE91812416F9BE0085DC5E /* Features */,
 				B4C4DE2D2369228E00501A10 /* FeatherTests.swift */,
 				B4C4DE2F2369228E00501A10 /* Info.plist */,
 			);
@@ -249,6 +260,7 @@
 				B4C4DE272369228E00501A10 /* Sources */,
 				B4C4DE282369228E00501A10 /* Frameworks */,
 				B4C4DE292369228E00501A10 /* Resources */,
+				8A4444CC388980ABFA872FC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4C4B60B23C927DD0022C6B4 /* GoogleService-Info.plist in Resources */,
+				04AE91832416F9D80085DC5E /* Features in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +406,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A4444CC388980ABFA872FC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FeatherTests/Pods-FeatherTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FeatherTests/Pods-FeatherTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FeatherTests/Pods-FeatherTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A6D3C0AFEBD01C81AE190150 /* [CP] Copy Pods Resources */ = {
@@ -631,6 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = J277WPWLFM;
 				INFOPLIST_FILE = Feather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,6 +681,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = J277WPWLFM;
 				INFOPLIST_FILE = Feather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
