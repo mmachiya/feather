@@ -10,7 +10,8 @@ import UIKit
 
 class Recommendation: UIViewController {
 
-    @IBOutlet weak var recommendationTableView: UITableViewCell!
+    
+    @IBOutlet weak var recommendationTableView: UITableView!
     
     let collection = ViewController.SignUpUser.currentCollection
     let doc = ViewController.SignUpUser.userAuthUID
