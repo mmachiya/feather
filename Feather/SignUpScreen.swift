@@ -14,6 +14,8 @@ import FBSDKLoginKit
 class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var `continue`: UIButton!
+    
+    @IBOutlet weak var continue2: UIButton!
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
             if ((error) != nil) {
                 // Process error
@@ -59,6 +61,7 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         if AccessToken.current != nil {
             self.performSegue(withIdentifier: "hehe2", sender: nil)
         } else if (GIDSignIn.sharedInstance()?.currentUser != nil) {
+            print("um")
             self.performSegue(withIdentifier: "hehe2", sender: nil)
         }
     }
