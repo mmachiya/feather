@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         downloadProductData()
     }
     
+    @IBOutlet weak var gsButton: UIButton!
     @IBAction func nextButtonTapped(_ sender: Any) {
 //        DispatchQueue.main.async
 //        {
