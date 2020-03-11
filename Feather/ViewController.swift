@@ -104,8 +104,8 @@ class ViewController: UIViewController {
                             }
                         }
                     }
-                    //Database.ingredients.sort()
-                    //Database.productsString.sort()
+                    Database.ingredients.sort()
+                    Database.productsString.sort()
                     print("GOT ALL DATA FROM DATABASE")
                     self.loadingData = false
                     DispatchQueue.main.async
