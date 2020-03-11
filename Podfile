@@ -1,11 +1,10 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'Feather' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
 
-  # Pods for Feather
+def common_pods
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
@@ -15,11 +14,16 @@ target 'Feather' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
+end
+
+target 'Feather' do
+  common_pods
+end
   
-  target 'FeatherTests' do
+target 'FeatherTests' do
     inherit! :search_paths
     # Pods for testing
+    common_pods
     pod 'Cucumberish'
-  end
-
 end
+

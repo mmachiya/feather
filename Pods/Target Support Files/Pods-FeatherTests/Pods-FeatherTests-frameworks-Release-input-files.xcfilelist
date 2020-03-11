@@ -1,2 +1,20 @@
 ${PODS_ROOT}/Target Support Files/Pods-FeatherTests/Pods-FeatherTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AppAuth-iOS13.2/AppAuth.framework
+${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC-iOS13.2/openssl_grpc.framework
+${BUILT_PRODUCTS_DIR}/FBSDKCoreKit-iOS13.2/FBSDKCoreKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKLoginKit-iOS13.2/FBSDKLoginKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKShareKit-iOS13.2/FBSDKShareKit.framework
+${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS13.2/GTMAppAuth.framework
+${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS13.2/GTMSessionFetcher.framework
+${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS13.2/GoogleUtilities.framework
+${BUILT_PRODUCTS_DIR}/MongoSwift-iOS13.2/MongoSwift.framework
+${BUILT_PRODUCTS_DIR}/abseil-iOS13.2/absl.framework
+${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS13.2/grpcpp.framework
+${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS13.2/grpc.framework
+${BUILT_PRODUCTS_DIR}/leveldb-library-iOS13.2/leveldb.framework
+${PODS_ROOT}/mongo-embedded-c-driver/iPhoneOS/Frameworks/bson.framework
+${PODS_ROOT}/mongo-embedded-c-driver/iPhoneOS/Frameworks/bson.framework.dSYM
+${PODS_ROOT}/mongo-embedded-c-driver/iPhoneOS/Frameworks/mongoc.framework
+${PODS_ROOT}/mongo-embedded-c-driver/iPhoneOS/Frameworks/mongoc.framework.dSYM
+${BUILT_PRODUCTS_DIR}/nanopb-iOS13.2/nanopb.framework
 ${BUILT_PRODUCTS_DIR}/Cucumberish/Cucumberish.framework

@@ -85,7 +85,9 @@ class SkinProfile: UIViewController {
         ViewController.SignUpUser.db.collection(collection).document(doc).setData(["acneLevel":acneValue], merge: true)
         print(acneValue)
         
-        let error = validateAge()
+        let age = (ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
+        
+        let error = validateAge(ageString:age)
         if error != nil
         {
             showError(error!)
@@ -96,18 +98,16 @@ class SkinProfile: UIViewController {
          }
     }
     
-    func validateAge() -> String?
+    func validateAge(ageString:String) -> String?
     {
         // check if age is filled
-        if ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        if ageString == ""
         {
             return "Please enter an age."
         }
         
         // check if the age is a valid number
-        let ageString: String = ageTextField.text ?? "-1"
         let ageInt: Int = Int(ageString) ?? -1
-        var old: Bool = false
         
         if ageInt < 0
         {
