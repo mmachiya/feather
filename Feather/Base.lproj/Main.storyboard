@@ -1268,8 +1268,8 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L0n-NN-B4D"/>
         <segue reference="gLZ-t5-SwO"/>
+        <segue reference="L0n-NN-B4D"/>
         <segue reference="KRN-9u-7lM"/>
         <segue reference="0uo-a1-bEr"/>
     </inferredMetricsTieBreakers>

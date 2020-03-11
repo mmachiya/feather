@@ -60,8 +60,10 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if AccessToken.current != nil {
             self.performSegue(withIdentifier: "hehe2", sender: nil)
-        } else if (GIDSignIn.sharedInstance()?.currentUser != nil) {
-            print("um")
+        }
+        if (GIDSignIn.sharedInstance().hasPreviousSignIn()) {
+            GIDSignIn.sharedInstance().restorePreviousSignIn()
+            print("another check")
             self.performSegue(withIdentifier: "hehe2", sender: nil)
         }
     }
