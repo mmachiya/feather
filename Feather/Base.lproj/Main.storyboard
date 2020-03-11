@@ -662,7 +662,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="t7J-hh-bSy" kind="presentation" modalPresentationStyle="fullScreen" id="5nR-7Z-Mtp"/>
+                                    <segue destination="kyw-QU-fmo" kind="presentation" modalPresentationStyle="fullScreen" id="TQE-Mk-9GS"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1tc-ry-RDm">
@@ -771,36 +771,51 @@
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Thanks!"/>
+                                <connections>
+                                    <segue destination="t7J-hh-bSy" kind="presentation" modalPresentationStyle="fullScreen" id="7Vo-sP-xxN"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="considering your concerns, here are some products!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKN-jb-oWF">
-                                <rect key="frame" x="36" y="152" width="341" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="considering your concerns, here are some products!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxo-mE-1aP">
+                                <rect key="frame" x="84" y="151" width="246" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
                                 <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iIB-6i-PDu">
-                                <rect key="frame" x="36" y="219" width="341" height="529"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tvm-wW-uzT">
+                                <rect key="frame" x="48" y="239" width="317" height="486"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendationCell" id="vIA-xf-BRr">
-                                        <rect key="frame" x="0.0" y="28" width="341" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendationCell" textLabel="9jg-zL-m8a" style="IBUITableViewCellStyleDefault" id="bwF-ny-KtZ">
+                                        <rect key="frame" x="0.0" y="28" width="317" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vIA-xf-BRr" id="alP-Ju-Q11">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bwF-ny-KtZ" id="d8C-Cw-5f3">
+                                            <rect key="frame" x="0.0" y="0.0" width="317" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9jg-zL-m8a">
+                                                    <rect key="frame" x="16" y="0.0" width="285" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kyw-QU-fmo" id="cJ5-1H-8X5"/>
+                                    <outlet property="delegate" destination="kyw-QU-fmo" id="m9y-2m-xLg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="zKN-jb-oWF" firstAttribute="top" secondItem="8K9-1F-dTf" secondAttribute="bottom" constant="31" id="Fsy-qo-cbu"/>
                             <constraint firstItem="fSM-KC-zJd" firstAttribute="top" secondItem="MKQ-Tg-eFY" secondAttribute="top" constant="29" id="Fus-hc-5ba"/>
                             <constraint firstItem="FEr-iA-I5I" firstAttribute="centerX" secondItem="fSM-KC-zJd" secondAttribute="centerX" id="Nug-vU-pry"/>
                             <constraint firstItem="MKQ-Tg-eFY" firstAttribute="bottom" secondItem="FEr-iA-I5I" secondAttribute="bottom" constant="39" id="Rb6-pt-oSj"/>
-                            <constraint firstItem="FEr-iA-I5I" firstAttribute="centerX" secondItem="zKN-jb-oWF" secondAttribute="centerX" id="a0v-Q0-l43"/>
                             <constraint firstItem="FEr-iA-I5I" firstAttribute="centerX" secondItem="8K9-1F-dTf" secondAttribute="centerX" id="avv-wq-Xoj"/>
                             <constraint firstItem="FEr-iA-I5I" firstAttribute="centerX" secondItem="nvD-Xo-Sab" secondAttribute="centerX" id="bcG-zp-4fK"/>
                             <constraint firstItem="8K9-1F-dTf" firstAttribute="leading" secondItem="MKQ-Tg-eFY" secondAttribute="leading" id="dlx-MT-inM"/>
@@ -810,7 +825,7 @@
                         <viewLayoutGuide key="safeArea" id="MKQ-Tg-eFY"/>
                     </view>
                     <connections>
-                        <outlet property="recommendationTableView" destination="iIB-6i-PDu" id="8u3-Gh-hKV"/>
+                        <outlet property="recTableView" destination="Tvm-wW-uzT" id="6e2-4e-sr6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBs-xi-Gns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1165,16 +1180,8 @@
                                     <action selector="journalPressed:" destination="t7J-hh-bSy" eventType="touchUpInside" id="ezv-yd-bEN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-7G-A00">
-                                <rect key="frame" x="150" y="313" width="114" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="my routine"/>
-                                <connections>
-                                    <segue destination="vSF-Uv-lOY" kind="presentation" modalPresentationStyle="fullScreen" id="0uo-a1-bEr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ado-gN-vx5">
-                                <rect key="frame" x="150" y="386" width="114" height="53"/>
+                                <rect key="frame" x="150" y="465" width="114" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="restart proflie"/>
                                 <connections>
@@ -1187,6 +1194,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXt-7G-A00">
+                                <rect key="frame" x="150" y="313" width="114" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="my routine"/>
+                                <connections>
+                                    <segue destination="vSF-Uv-lOY" kind="presentation" modalPresentationStyle="fullScreen" id="0uo-a1-bEr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dI-Hj-K9R">
+                                <rect key="frame" x="133" y="400" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="my recommendations"/>
+                                <connections>
+                                    <segue destination="kyw-QU-fmo" kind="presentation" modalPresentationStyle="fullScreen" id="xqn-iD-i3I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1344,9 +1367,10 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ayl-6z-pld"/>
         <segue reference="gLZ-t5-SwO"/>
-        <segue reference="5nR-7Z-Mtp"/>
-        <segue reference="g74-4r-4V5"/>
+        <segue reference="ayl-6z-pld"/>
+        <segue reference="7Vo-sP-xxN"/>
+        <segue reference="0uo-a1-bEr"/>
+        <segue reference="TQE-Mk-9GS"/>
     </inferredMetricsTieBreakers>
 </document>

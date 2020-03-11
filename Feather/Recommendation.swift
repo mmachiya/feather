@@ -7,34 +7,39 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
-class Recommendation: UIViewController {
+class Recommendation: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-    @IBOutlet weak var recommendationTableView: UITableView!
+    var recsString = [String]()
+    @IBOutlet weak var recTableView: UITableView!
     
     let collection = ViewController.SignUpUser.currentCollection
     let doc = ViewController.SignUpUser.userAuthUID
-    var recs = [ProductInfo]()
-    var recsString = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadRecommendationData()
+
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.recsString.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = recTableView.dequeueReusableCell(withIdentifier: "recommendationCell")
+        cell?.textLabel?.text = self.recsString[indexPath.row]
+        return cell!
     }
     
     func downloadRecommendationData()
     {
-        let alert = UIAlertController(title: "Please standby", message: "Currently loading lots of cool data...", preferredStyle: .alert)
-         DispatchQueue.main.async
-                {
-                    self.present(alert, animated: true, completion: nil)
-                }
         // ========================
         // NEED TO CALL PYTHON HERE
         // ========================
         
-        let url = URL(string: "JSON FROM JACKY")
+        let url = URL(string:"https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/fakerecommendation.json")
         
         URLSession.shared.dataTask(with: url!)
         {
@@ -43,64 +48,27 @@ class Recommendation: UIViewController {
                 {
                     print("before parsing json")
                     ViewController.SignUpUser.recommendations = try JSONDecoder().decode([ProductInfo].self, from: data!)
+                    print("after parsing json")
                     
                     for prod in ViewController.SignUpUser.recommendations
                     {
-                        self.recsString.append(prod.name)
+                        let tempname: String = prod.brand + " " + prod.name
+                        self.recsString.append(tempname)
                     }
+                    print(self.recsString)
                     print("GOT ALL RECOMMENDATION")
-                        
-                    DispatchQueue.main.async
-                    {
-                        alert.dismiss(animated: true, completion: nil)
-                    }
                 }
-                catch
+                catch let error
                 {
+                    print(error)
                     print("My JSON Decoding Error")
                 }
+            DispatchQueue.main.async
+            {
+                self.recTableView.reloadData()
+            }
+            
         }.resume()
+        print("got to here")
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return recs.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recommendationCell")
-        cell?.textLabel?.text = recsString[indexPath.row]
-        cell?.textLabel?.font = UIFont(name: "Palatino", size: 20.0)
-        cell?.textLabel?.textColor = UIColor.white
-        return cell!
-    }
-    
-    //doesn't allow deletion TODO (doesn't work)
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
-    func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int
-    {
-        return 0
-    }
-    
-    // functions for moving the cell rows around
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-    {
-        let item = recsString[sourceIndexPath.row]
-        recsString.remove(at: sourceIndexPath.row)
-        recsString.insert(item, at: destinationIndexPath.row)
-    }
-    
-
 }
