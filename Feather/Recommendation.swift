@@ -20,7 +20,6 @@ class Recommendation: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadRecommendationData()
-
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +68,5 @@ class Recommendation: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
         }.resume()
-        print("got to here")
     }
 }

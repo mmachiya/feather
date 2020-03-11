@@ -26,13 +26,31 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B4F2B67E2418C59300C80E8B"
+            BuildableName = "FeatherTests.xctest"
+            BlueprintName = "FeatherTests"
+            ReferencedContainer = "container:Feather.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CBEA664823E890970006DFB0"
+            BuildableName = "FeatherUITests.xctest"
+            BlueprintName = "FeatherUITests"
+            ReferencedContainer = "container:Feather.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4C4DE2A2369228E00501A10"
+               BlueprintIdentifier = "B4F2B67E2418C59300C80E8B"
                BuildableName = "FeatherTests.xctest"
                BlueprintName = "FeatherTests"
                ReferencedContainer = "container:Feather.xcodeproj">

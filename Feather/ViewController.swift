@@ -75,19 +75,17 @@ class ViewController: UIViewController {
     func downloadProductData()
     {
         let alert = UIAlertController(title: "Please standby", message: "Currently loading lots of cool data...", preferredStyle: .alert)
-         DispatchQueue.main.async
-                {
-                    self.present(alert, animated: true, completion: nil)
-                }
+        DispatchQueue.main.async
+        {
+            self.present(alert, animated: true, completion: nil)
+        }
         let url = URL(string: "https://raw.githubusercontent.com/mmachiya/feather/master/WebScraping/newulta2.json")
         URLSession.shared.dataTask(with: url!)
         {
             (data, response, error) in
                 do
                 {
-                    print("before parsing json")
                     Database.products = try JSONDecoder().decode([ProductInfo].self, from: data!)
-                    print("past json decoder")
                     for prod in Database.products
                     {
                         if !Database.productsString.contains(prod.name)
