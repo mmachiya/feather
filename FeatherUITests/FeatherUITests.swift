@@ -35,6 +35,24 @@ class FeatherUITests: XCTestCase {
         app.terminate()
     }
 
+        func testCRY() {
+    //        THIS FAILS
+            
+            let app = XCUIApplication()
+            app.launch()
+            app.buttons["get started"].tap()
+            app.buttons["my journal"].tap()
+//            app.alerts["“Feather” Wants to Use “google.com” to Sign In"].scrollViews.otherElements.buttons["Cancel"].tap()
+            app.terminate()
+            
+            
+            let app = XCUIApplication()
+            app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
+            app.buttons["get started"].tap()
+
+            
+        }
+    
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
