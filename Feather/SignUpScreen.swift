@@ -11,11 +11,53 @@ import GoogleSignIn
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+
 class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     
     @IBOutlet weak var `continue`: UIButton!
-    
     @IBOutlet weak var continue2: UIButton!
+    var handle: AuthStateDidChangeListenerHandle?
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+            if let error = error {
+              print(error.localizedDescription)
+              return
+            }
+          guard let authentication = user.authentication else { return }
+          let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                         accessToken: authentication.accessToken)
+          Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+              print(error.localizedDescription)
+              return
+            }
+            let docRef = ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    print("Document data: \(dataDescription)")
+                    print("user has a firebase account already, and is skipping profile")
+                    if(GIDSignIn.sharedInstance().hasPreviousSignIn()){
+                      GIDSignIn.sharedInstance().restorePreviousSignIn()}
+                    self.performSegue(withIdentifier: "hehe2", sender: nil)
+                } else {
+                    ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
+                    ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
+                    print("UID ===========>" + ViewController.SignUpUser.userAuthUID)
+                    ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+                    print("AUTHENTICATION TOKEN ID" + authentication.idToken!)
+                    self.performSegue(withIdentifier: "hehe", sender: nil)
+                    print("Document does not exist for this user.")
+                    print("headed to profile now for the first time")
+                    self.performSegue(withIdentifier: "hehe", sender: nil)
+                }
+            }
+        }
+      }
+
+      func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+          // Perform any operations when the user disconnects from app here.
+          // ...
+      }
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
             if ((error) != nil) {
                 // Process error
@@ -25,28 +67,38 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
             }
             else {
                 let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-                
-                ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
-                ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
-            ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
-                
+
                 Auth.auth().signIn(with: credential) { (authResult, error) in
                   if let error = error {
                     print(error)
                     return
                   }
-                  // User is signed in
-                  self.performSegue(withIdentifier: "hehe", sender: nil)
+                  let docRef = ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+                  docRef.getDocument { (document, error) in
+                      if let document = document, document.exists {
+                          let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                          print("Document data: \(dataDescription)")
+                          print("user has a firebase account already, and is skipping profile")
+                          self.performSegue(withIdentifier: "hehe2", sender: nil)
+                      } else {
+                          print("Document does not exist for this user.")
+                          ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
+                          ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
+                          ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+                           print("headed to profile now for the first time")
+                          self.performSegue(withIdentifier: "hehe", sender: nil)
+                      }
+                  }
+                    
                 }
+                
             }
-    }
+            }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         print("user logged out")
     }
-    @IBAction func didTapSignOut(_ sender: AnyObject) {
-      GIDSignIn.sharedInstance().signOut()
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().delegate = self
@@ -58,51 +110,16 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
 
     }
     override func viewDidAppear(_ animated: Bool) {
-        if AccessToken.current != nil {
-            self.performSegue(withIdentifier: "hehe2", sender: nil)
-        }
-        if (GIDSignIn.sharedInstance().hasPreviousSignIn()) {
-            GIDSignIn.sharedInstance().restorePreviousSignIn()
-            print("another check")
-            self.performSegue(withIdentifier: "hehe2", sender: nil)
-        }
+     if Auth.auth().currentUser != nil {
+        // User is signed in.
+        // ...
+        print("sending you to main menu")
+        self.performSegue(withIdentifier: "hehe2", sender: nil)
+    } else {
+        print("user is not signed in")
+    }
     }
     deinit {
             NotificationCenter.default.removeObserver(self)
-        }
-        
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-          if let error = error {
-            print(error.localizedDescription)
-            return
-          }
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
-        ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
-        print("UID ===========>" + ViewController.SignUpUser.userAuthUID)
-        ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
-        
-        print("AUTHENTICATION TOKEN ID" + authentication.idToken!)
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-          if let error = error {
-            print(error.localizedDescription)
-            return
-          }
-
-        if (GIDSignIn.sharedInstance()?.currentUser != nil) {
-            self.performSegue(withIdentifier: "hehe", sender: nil)
-        }
-        else {
-            print("Boo")
-        }
     }
-    }
-
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-    }
-    
 }

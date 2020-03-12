@@ -7,13 +7,76 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
+
 var firstTime = true;
-class MainMenu: UIViewController {
+class MainMenu: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print("nobody should call this")
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        print("nobody should call this")
+    }
+    @IBAction func didTapSignOut(_ sender: AnyObject) {
+      GIDSignIn.sharedInstance().signOut()
+        if Auth.auth().currentUser != nil {
+            print("user is not nil")
+        }
+        else {
+            print("user is nil")
+        }
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        if Auth.auth().currentUser != nil {
+            print("user is not nil")
+        }
+        else {print("user is nil")}
+        transitionStart()
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("logging out")
+        if AccessToken.current == nil {
+           print("we out herefb")
+        }
+        if Auth.auth().currentUser != nil {
+            print("user is not nil")
+        }
+        else {
+            print("user is nil")
+        }
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        if Auth.auth().currentUser != nil {
+            print("user is not nil")
+        }
+        else {print("user is nil")}
+        LoginManager().logOut()
+        if AccessToken.current == nil {
+                   print("this is good fb")
+        }
+
+        transitionStart()
+    }
+    
 //    var firstTime = true;
     
     @IBOutlet var trailing: NSLayoutConstraint!
     @IBOutlet var leading: NSLayoutConstraint!
     
+    @IBOutlet weak var logoutGmail: UIButton!
     @IBOutlet weak var RPButton: UIButton!
     var menuOut = false
     @IBOutlet weak var journalButton: UIButton!
@@ -45,8 +108,18 @@ class MainMenu: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        if (AccessToken.current != nil){
+            print("that access for fb exists")
+            let loginButton = FBLoginButton()
+            loginButton.delegate = self
+            loginButton.center = self.view.center;
+            self.view.addSubview(loginButton);
+        }
+        else{
+            GIDSignIn.sharedInstance().delegate = self
+            GIDSignIn.sharedInstance()?.presentingViewController = self
+        }
     }
     
     func transitionProfile()
@@ -62,6 +135,14 @@ class MainMenu: UIViewController {
         let JournalVC = storyboard?.instantiateViewController(identifier: "JournalVC") as? EntryCollectionViewController
         
         view.window?.rootViewController = JournalVC
+        view.window?.makeKeyAndVisible()
+    }
+    
+    func transitionStart()
+    {
+        let SignUpScreenID = storyboard?.instantiateViewController(identifier: "SignUpScreenID") as? SignUpScreen
+        
+        view.window?.rootViewController = SignUpScreenID
         view.window?.makeKeyAndVisible()
     }
 

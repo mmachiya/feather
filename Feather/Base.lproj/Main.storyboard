@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0CJ-bj-VwJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -1016,7 +1016,7 @@
         <!--Sign Up Screen-->
         <scene sceneID="say-9S-stR">
             <objects>
-                <viewController storyboardIdentifier="SignUpScreen" id="0CJ-bj-VwJ" customClass="SignUpScreen" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpScreenID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0CJ-bj-VwJ" customClass="SignUpScreen" customModule="Feather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vgx-Ii-fz9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1029,7 +1029,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vFX-g4-pIP" customClass="GIDSignInButton">
-                                <rect key="frame" x="87" y="373" width="240" height="128"/>
+                                <rect key="frame" x="59" y="359" width="296" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -1070,7 +1070,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uoy-j2-oph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="781" y="102"/>
+            <point key="canvasLocation" x="779.71014492753625" y="101.78571428571428"/>
         </scene>
         <!--my routine-->
         <scene sceneID="JfI-eT-9Le">
@@ -1210,6 +1210,14 @@
                                     <segue destination="kyw-QU-fmo" kind="presentation" modalPresentationStyle="fullScreen" id="xqn-iD-i3I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be0-2R-7QF">
+                                <rect key="frame" x="183" y="608" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapSignOut:" destination="t7J-hh-bSy" eventType="touchUpInside" id="uPD-Mb-qng"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1223,6 +1231,7 @@
                     <connections>
                         <outlet property="RPButton" destination="Ado-gN-vx5" id="qno-hw-dGK"/>
                         <outlet property="journalButton" destination="uJY-ol-Alh" id="Se3-CR-Ari"/>
+                        <outlet property="logoutGmail" destination="Be0-2R-7QF" id="DeZ-Km-iOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vb-zK-7bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1367,10 +1376,10 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gLZ-t5-SwO"/>
         <segue reference="ayl-6z-pld"/>
-        <segue reference="7Vo-sP-xxN"/>
+        <segue reference="gLZ-t5-SwO"/>
+        <segue reference="KRN-9u-7lM"/>
         <segue reference="0uo-a1-bEr"/>
-        <segue reference="TQE-Mk-9GS"/>
+        <segue reference="xqn-iD-i3I"/>
     </inferredMetricsTieBreakers>
 </document>
