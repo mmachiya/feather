@@ -244,12 +244,42 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Nimble-Snapshots-iOS13.1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble-Snapshots-iOS13.2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble-iOS13.1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble-iOS13.2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Feather.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-FeatherTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick-iOS13.1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick-iOS13.2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -290,6 +320,16 @@
 			<false/>
 		</dict>
 		<key>gRPC-Core-iOS13.2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>iOSSnapshotTestCase-iOS13.1.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>iOSSnapshotTestCase-iOS13.2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

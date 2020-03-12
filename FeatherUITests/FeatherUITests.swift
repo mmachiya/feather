@@ -25,9 +25,11 @@ class FeatherUITests: XCTestCase {
     }
 
     func testCancelGoogle() {
-        let app = XCUIApplication()
-        app/*@START_MENU_TOKEN@*/.buttons["GIDSignInButton"]/*[[".buttons[\"Sign in\"]",".buttons[\"GIDSignInButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
-        app.alerts["“Feather” Wants to Use “google.com” to Sign In"].scrollViews.otherElements.buttons["Continue"].tap()
+        //let app = XCUIApplication()
+        app.launch()
+        app.buttons["get started"].tap()
+        //app/*@START_MENU_TOKEN@*/.buttons["GIDSignInButton"]/*[[".buttons[\"Sign in\"]",".buttons[\"GIDSignInButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
+        //app.alerts["“Feather” Wants to Use “google.com” to Sign In"].scrollViews.otherElements.buttons["Continue"].tap()
         
     }
 
