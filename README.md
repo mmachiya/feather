@@ -1,8 +1,8 @@
 # CSC 308/309: Feather
 For individuals who are concerned with their facial skin, especially young adults, _Feather_ is an innovative, groundbreaking AI-powered software that recommends personalized selections of products, and logs the progression of facial health; unlike Curology, _Feather_’s recommendations are not subscription-based and allow the user to pick and choose their favorite products and routines.
 ### Setting up Environment for Development
-1. Need to add steps here
-2. insert steps
+1. Make sure you have a Mac and have installed Xcode
+2. Clone this repo and build 
 
 ### Running Project Components
 
