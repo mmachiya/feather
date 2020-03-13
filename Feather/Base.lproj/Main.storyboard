@@ -1450,8 +1450,8 @@
         <image name="featherIcon" width="143.5" height="123.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ayl-6z-pld"/>
         <segue reference="gLZ-t5-SwO"/>
+        <segue reference="ayl-6z-pld"/>
         <segue reference="KRN-9u-7lM"/>
         <segue reference="v7N-VX-oZR"/>
         <segue reference="p2K-E6-25C"/>
