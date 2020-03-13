@@ -28,10 +28,25 @@ The system should take users to the conditions questionnaire if it is their firs
 The system allows users to login using either Google or Facebook.  
 The system remembers users and builds a profile for a user so their information is saved after finishing the                 questionnaire.  
 
-Scenario: I want to be a new user  
+Scenario: I am a new user with a different device. 
 GIVEN: I access app on a new device   
 WHEN: I log into my account  
 THEN: I should be able to transfer my information  
+
+Scenario: I am a returning user, and have previously logged out. 
+GIVEN: I access app on my usual device.  
+WHEN: I log into my account  
+THEN: I should skip the profile setup and go directly to the main menu.  
+
+Scenario: I am a returning user opening the app again.  
+GIVEN: I access app on my usual device and am still logged in.  
+WHEN: I open the app.  
+THEN: I should be taken to the last screen I was on, or the main menu.  
+
+Scenario: I am a new user.  
+GIVEN: I access the app on my device and there is no existing data for me in Firebase.  
+WHEN: I open the app.  
+THEN: I should be taken to the profile setup.  
   
 2. Keep Track of my Progress  
 As a novice to skin care, I want to have a journal feature so that I am able to keep track of my progress with different products.  
