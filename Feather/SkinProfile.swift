@@ -88,6 +88,10 @@ class SkinProfile: UIViewController {
         let age = (ageTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines))!
         
         let error = validateAge(ageString:age)
+        
+        ViewController.SignUpUser.age = Int(age)!
+        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["age":ageValue], merge: true)
+        
         if error != nil
         {
             showError(error!)
@@ -121,10 +125,8 @@ class SkinProfile: UIViewController {
         {
             return "Are you sure? Your age is awfully high, please re-enter."
         }
-        // if nothing is wrong we are setting the global ageValue here
-        ageValue = ageInt
-        ViewController.SignUpUser.age = ageValue
-        ViewController.SignUpUser.db.collection(collection).document(doc).setData(["age":ageValue], merge: true)
+        
+        // if nothing is wrong
         return nil
     }
     

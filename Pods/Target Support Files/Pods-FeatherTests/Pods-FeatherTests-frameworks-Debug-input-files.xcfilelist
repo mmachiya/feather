@@ -8,9 +8,13 @@ ${BUILT_PRODUCTS_DIR}/GTMAppAuth-iOS13.2/GTMAppAuth.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher-iOS13.2/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleUtilities-iOS13.2/GoogleUtilities.framework
 ${BUILT_PRODUCTS_DIR}/MongoSwift-iOS13.2/MongoSwift.framework
+${BUILT_PRODUCTS_DIR}/Nimble-iOS13.2/Nimble.framework
+${BUILT_PRODUCTS_DIR}/Nimble-Snapshots-iOS13.2/Nimble_Snapshots.framework
+${BUILT_PRODUCTS_DIR}/Quick-iOS13.2/Quick.framework
 ${BUILT_PRODUCTS_DIR}/abseil-iOS13.2/absl.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-C++-iOS13.2/grpcpp.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-Core-iOS13.2/grpc.framework
+${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase-iOS13.2/FBSnapshotTestCase.framework
 ${BUILT_PRODUCTS_DIR}/leveldb-library-iOS13.2/leveldb.framework
 ${PODS_ROOT}/mongo-embedded-c-driver/iPhoneOS/Frameworks/bson.framework
 ${PODS_ROOT}/mongo-embedded-c-driver/iPhoneOS/Frameworks/bson.framework.dSYM

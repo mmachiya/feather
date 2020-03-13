@@ -9,13 +9,21 @@
 import UIKit
 import FirebaseFirestore
 
+protocol AllergiesProtocol {
+    func didSelectCell(data:String)
+}
+
 class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 {
     let collection = ViewController.SignUpUser.currentCollection
     let doc = ViewController.SignUpUser.userAuthUID
     
+    var allergyProtocol : AllergiesProtocol?
+    
     var searchedAllergy = [String]()
     var searching = false
+    
+    var ingredients = ViewController.Database.ingredients
     
     var allergies = [String]()
         
@@ -36,7 +44,7 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         }
         else
         {
-            ingredient = ViewController.Database.ingredients[indexPath.row]
+            ingredient = ingredients[indexPath.row]
         }
         
         if !allergies.contains(ingredient)
@@ -48,11 +56,13 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
             textOutput.text += "\n"
         }
         
-        let ref = ViewController.SignUpUser.db.collection(collection).document(doc)
-                
-        ref.setData(["allergies": FieldValue.arrayUnion(allergies)], merge: true)
+        allergyProtocol?.didSelectCell(data:ingredient)
         
-        allergiesTableView.reloadData()
+        //let ref = ViewController.SignUpUser.db.collection(ViewController.SignUpUser.currentCollection).document(ViewController.SignUpUser.userAuthUID)
+                
+        //ref.setData(["allergies": FieldValue.arrayUnion(allergies)], merge: true)
+        
+        //allergiesTableView.reloadData()
     }
     
     // how many rows there is, depending on the data available
@@ -60,7 +70,7 @@ class Allergies: UIViewController,UITableViewDelegate, UITableViewDataSource, UI
         if searching {
             return searchedAllergy.count
         } else {
-            return ViewController.Database.ingredients.count
+            return ingredients.count
         }
     }
     

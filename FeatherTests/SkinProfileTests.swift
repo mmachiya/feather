@@ -9,7 +9,7 @@
 import XCTest
 @testable import Feather
 
-class FeatherTests: XCTestCase {
+class SkinProfileTests: XCTestCase {
 
     func testSkinProfileValidateAgeEmpty()
     {
@@ -43,4 +43,12 @@ class FeatherTests: XCTestCase {
         
         XCTAssertEqual(err, "Are you sure? Your age is awfully high, please re-enter.")
     }
+    
+    func testSkinProfileValidateAgeValid()
+    {
+        let skinprofile = SkinProfile()
+        let err: String? = skinprofile.validateAge(ageString:"25")
+        XCTAssertNil(err)
+    }
+    
 }

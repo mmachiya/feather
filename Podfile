@@ -14,6 +14,9 @@ def common_pods
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
+  pod 'Quick'
+  pod 'Nimble'
+  pod 'Nimble-Snapshots'
 end
 
 target 'Feather' do
