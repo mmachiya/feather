@@ -1,9 +1,8 @@
 # CSC 308/309: Feather
-Include Project Description
-
+For individuals who are concerned with their facial skin, especially young adults, _Feather_ is an innovative, groundbreaking AI-powered software that recommends personalized selections of products, and logs the progression of facial health; unlike Curology, _Feather_’s recommendations are not subscription-based and allow the user to pick and choose their favorite products and routines.
 ### Setting up Environment for Development
-1. yes
-2. no 
+1. Need to add steps here
+2. insert steps
 
 ### Running Project Components
 
@@ -16,7 +15,7 @@ https://github.com/linkedin/swift-style-guide
 Static Source Code Analysis Report can be found [here](https://github.com/mmachiya/feather/wiki/Static-Source-Code-Analysis-Report)
 ## Software Tests
 ### Testing Strategy Document
-wiki link
+Testing Strategy Document can be found [here](https://github.com/mmachiya/feather/wiki/Testing-Strategy-Document)
 ### Unit/Integration Tests
 wiki link
 ### Acceptance Tests
