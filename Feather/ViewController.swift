@@ -119,7 +119,7 @@ class ViewController: UIViewController {
     }
     func transitionNext()
     {
-        let signup = storyboard?.instantiateViewController(identifier: "SignUpScreen") as? SignUpScreen
+        let signup = storyboard?.instantiateViewController(identifier: "SignUpScreenID") as? SignUpScreen
         
         view.window?.rootViewController = signup
         view.window?.makeKeyAndVisible()

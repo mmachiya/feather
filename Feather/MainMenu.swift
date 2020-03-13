@@ -22,7 +22,14 @@ class MainMenu: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         print("nobody should call this")
     }
     @IBAction func didTapSignOut(_ sender: AnyObject) {
-      GIDSignIn.sharedInstance().signOut()
+        if AccessToken.current == nil {
+           print("fb not logged in, logged in with google")
+           GIDSignIn.sharedInstance().signOut()
+        } else {
+            print("fb logged in")
+            let loginManager = LoginManager()
+            loginManager.logOut()
+        }
         if Auth.auth().currentUser != nil {
             print("user is not nil")
         }
@@ -76,10 +83,12 @@ class MainMenu: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     @IBOutlet var trailing: NSLayoutConstraint!
     @IBOutlet var leading: NSLayoutConstraint!
     
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var logoutGmail: UIButton!
     @IBOutlet weak var RPButton: UIButton!
     var menuOut = false
     @IBOutlet weak var journalButton: UIButton!
+    
     @IBAction func journalPressed(_ sender: UIButton) {
         if (firstTime == true){
             firstTimeJournal()
@@ -110,11 +119,11 @@ class MainMenu: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         if (AccessToken.current != nil){
-            print("that access for fb exists")
-            let loginButton = FBLoginButton()
-            loginButton.delegate = self
-            loginButton.center = self.view.center;
-            self.view.addSubview(loginButton);
+//            print("that access for fb exists")
+//            let loginButton = FBLoginButton()
+//            loginButton.delegate = self
+//            loginButton.center = self.view.center;
+//            self.view.addSubview(loginButton);
         }
         else{
             GIDSignIn.sharedInstance().delegate = self

@@ -12,11 +12,14 @@ import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
+class SignUpScreen: UIViewController, GIDSignInDelegate {
     
+    @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var `continue`: UIButton!
     @IBOutlet weak var continue2: UIButton!
     var handle: AuthStateDidChangeListenerHandle?
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
             if let error = error {
               print(error.localizedDescription)
@@ -58,54 +61,52 @@ class SignUpScreen: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
           // Perform any operations when the user disconnects from app here.
           // ...
       }
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+
+    @IBAction func customGoogle(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    @IBAction func customFacebook(_ sender: Any) {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: [], from: self) { [weak self] (result, error) in
+            
             if ((error) != nil) {
-                // Process error
+                           // Process error
             }
             else if result!.isCancelled {
-                // Handle cancellations
+                           // Handle cancellations
             }
             else {
-                let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
 
-                Auth.auth().signIn(with: credential) { (authResult, error) in
-                  if let error = error {
-                    print(error)
-                    return
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+              if let error = error {
+                print(error)
+                return
+              }
+              let docRef = ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+              docRef.getDocument { (document, error) in
+                  if let document = document, document.exists {
+                      let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                      print("Document data: \(dataDescription)")
+                      print("user has a firebase account already, and is skipping profile")
+                    self?.performSegue(withIdentifier: "hehe2", sender: nil)
+                  } else {
+                      print("Document does not exist for this user.")
+                      ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
+                      ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
+                      ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
+                       print("headed to profile now for the first time")
+                    self?.performSegue(withIdentifier: "hehe", sender: nil)
                   }
-                  let docRef = ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
-                  docRef.getDocument { (document, error) in
-                      if let document = document, document.exists {
-                          let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                          print("Document data: \(dataDescription)")
-                          print("user has a firebase account already, and is skipping profile")
-                          self.performSegue(withIdentifier: "hehe2", sender: nil)
-                      } else {
-                          print("Document does not exist for this user.")
-                          ViewController.SignUpUser.userAuthUID = Auth.auth().currentUser!.uid
-                          ViewController.SignUpUser.currentCollection = Auth.auth().currentUser!.uid
-                          ViewController.SignUpUser.db.collection(Auth.auth().currentUser!.uid).document(Auth.auth().currentUser!.uid)
-                           print("headed to profile now for the first time")
-                          self.performSegue(withIdentifier: "hehe", sender: nil)
-                      }
-                  }
-                    
-                }
-                
+              }
+    }
             }
-            }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("user logged out")
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().delegate = self
-        let loginButton = FBLoginButton()
-        loginButton.delegate = self
-        loginButton.center = self.view.center;
-        self.view.addSubview(loginButton);
         GIDSignIn.sharedInstance()?.presentingViewController = self
 
     }
