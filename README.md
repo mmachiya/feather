@@ -17,7 +17,7 @@ Static Source Code Analysis Report can be found [here](https://github.com/mmachi
 ### Testing Strategy Document
 Testing Strategy Document can be found [here](https://github.com/mmachiya/feather/wiki/Testing-Strategy-Document)
 ### Unit/Integration Tests
-wiki link
+   An attempt was made to complete unit testing for this project. However, we discovered that much of our business logic relies on built in functions provided and/or required by Swift. Most of our Swift code involves feeding data pulled from the database or inputted by the user into a Swift function. We realized that it is very difficult and almost counter-intuitive to be testing such functions because it is not our logic, but Swift logic. When left without such functions, we determined it was impossible to reach 50% code coverage. 
 ### Acceptance Tests
 wiki link -> tests in github
 ## Continuous Integration
