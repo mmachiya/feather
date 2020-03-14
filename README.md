@@ -19,7 +19,6 @@ Testing Strategy Document can be found [here](https://github.com/mmachiya/feathe
 ### Unit/Integration Tests
    An attempt was made to complete unit testing for this project. However, we discovered that much of our business logic relies on built in functions provided and/or required by Swift. Most of our Swift code involves feeding data pulled from the database or inputted by the user into a Swift function. We realized that it is very difficult and almost counter-intuitive to be testing such functions because it is not our logic, but Swift logic. When left without such functions, we determined it was impossible to reach 50% code coverage. 
 ### Acceptance Tests
-wiki link -> tests in github
 
 1. User Log-In  
 As a user, I want to be able to save my profile in an account so that I can save and potentially transfer my information.  
