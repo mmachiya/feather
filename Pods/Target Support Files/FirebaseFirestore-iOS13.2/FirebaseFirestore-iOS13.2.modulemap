@@ -1,6 +1,0 @@
-framework module FirebaseFirestore {
-  umbrella header "FirebaseFirestore-iOS13.2-umbrella.h"
-
-  export *
-  module * { export * }
-}

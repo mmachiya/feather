@@ -1,6 +1,0 @@
-framework module grpcpp {
-  umbrella header "gRPC-C++-iOS13.1-umbrella.h"
-
-  export *
-  module * { export * }
-}

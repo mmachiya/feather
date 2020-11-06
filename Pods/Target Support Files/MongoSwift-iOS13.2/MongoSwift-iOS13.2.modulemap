@@ -1,6 +1,0 @@
-framework module MongoSwift {
-  umbrella header "MongoSwift-iOS13.2-umbrella.h"
-
-  export *
-  module * { export * }
-}
